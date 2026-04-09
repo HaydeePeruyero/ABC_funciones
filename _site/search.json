@@ -1,0 +1,58 @@
+[
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "El ABC de las funciones",
+    "section": "",
+    "text": "Las funciones reúnen una secuencia de operaciones como un todo, almacenándola para su uso continuo. Las funciones proveen:\n\nun NOMBRE que podemos recordar y usar para invocarla\nuna solución para la necesidad de recordar operaciones individuales\nun conjunto definido de inputs y outputs esperados\nuna mayor conexión con el ambiente de programación\n\nComo el componente básico de la mayoría de los lenguajes de programación, las funciones definidas por el usuario constituyen la “programación” de cualquier abstracción que puedas hacer.\nSi has escrito una función, eres ya todo un programador.\nSource"
+  },
+  {
+    "objectID": "about.html",
+    "href": "about.html",
+    "title": "Más info",
+    "section": "",
+    "text": "Aquí puedes encontrar información relacionada al tema y otros tutoriales de la Autora.\n\n1 Referencias\n\nFunciones, R para Análisis Científicos Reproducibles, Software Carpentry\n\n\n\n2 Otros tutoriales\n\nCrea tu página web con Hugo Àpero\nCrea tu página web con blogdown, Hugo y Academic CV\nMathcha tutorial"
+  },
+  {
+    "objectID": "index.html#qué-es-una-función",
+    "href": "index.html#qué-es-una-función",
+    "title": "El ABC de las funciones",
+    "section": "",
+    "text": "Las funciones reúnen una secuencia de operaciones como un todo, almacenándola para su uso continuo. Las funciones proveen:\n\nun NOMBRE que podemos recordar y usar para invocarla\nuna solución para la necesidad de recordar operaciones individuales\nun conjunto definido de inputs y outputs esperados\nuna mayor conexión con el ambiente de programación\n\nComo el componente básico de la mayoría de los lenguajes de programación, las funciones definidas por el usuario constituyen la “programación” de cualquier abstracción que puedas hacer.\nSi has escrito una función, eres ya todo un programador."
+  },
+  {
+    "objectID": "index.html#verificación-realizar-pruebas-1",
+    "href": "index.html#verificación-realizar-pruebas-1",
+    "title": "El ABC de las funciones",
+    "section": "5.2 Verificación / Realizar pruebas",
+    "text": "5.2 Verificación / Realizar pruebas\n\n\nMostrar código\nfahr_to_kelvin(32) # Punto de congelación del agua\n\n\n[1] 273.15\n\n\nMostrar código\nfahr_to_kelvin(212) # Punto de ebullición del agua\n\n\n[1] 373.15"
+  },
+  {
+    "objectID": "index.html#verificación-realizar-pruebas",
+    "href": "index.html#verificación-realizar-pruebas",
+    "title": "El ABC de las funciones",
+    "section": "4.1 Verificación / Realizar pruebas",
+    "text": "4.1 Verificación / Realizar pruebas\nUna vez definida la función, es importante evaluarla para comprobar que realiza correctamente la operación esperada.\nAntes de ejecutarla, responde:\n\n¿Qué resultado esperas obtener al evaluar my_sum(3, 4)?\n\n\n\nMostrar código\nmy_sum(3,4)\n\n\n[1] 7"
+  },
+  {
+    "objectID": "index.html#verificación-realizar-pruebas-2",
+    "href": "index.html#verificación-realizar-pruebas-2",
+    "title": "El ABC de las funciones",
+    "section": "5.4 Verificación / Realizar pruebas",
+    "text": "5.4 Verificación / Realizar pruebas\n\n\nMostrar código\nkelvin_to_celsius(300) \n\n\n[1] 26.85\n\n\nMostrar código\nkelvin_to_celsius(400) \n\n\n[1] 126.85"
+  },
+  {
+    "objectID": "index.html#conversión-de-fahrenheit-a-kelvin",
+    "href": "index.html#conversión-de-fahrenheit-a-kelvin",
+    "title": "El ABC de las funciones",
+    "section": "5.1 Conversión de Fahrenheit a Kelvin",
+    "text": "5.1 Conversión de Fahrenheit a Kelvin\nVamos a crear otra función para convertir unidades de Fahrenheit a Kelvin.\n\n\nMostrar código\nfahr_to_kelvin &lt;- function(temp) {\n  kelvin &lt;- ((temp - 32) * (5 / 9)) + 273.15\n  return(kelvin)\n}\n\n\nSofware Carpentry, Funciones"
+  },
+  {
+    "objectID": "index.html#conversión-de-kelvin-a-celsius",
+    "href": "index.html#conversión-de-kelvin-a-celsius",
+    "title": "El ABC de las funciones",
+    "section": "5.3 Conversión de Kelvin a Celsius",
+    "text": "5.3 Conversión de Kelvin a Celsius\n\n\nMostrar código\nkelvin_to_celsius &lt;- function(temp) {\n  celsius &lt;- temp - 273.15\n  return(celsius)\n}\n\n\nSofware Carpentry, Funciones"
+  }
+]
