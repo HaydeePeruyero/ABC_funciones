@@ -4,28 +4,28 @@
     "href": "index.html",
     "title": "El ABC de las funciones",
     "section": "",
-    "text": "Las funciones reúnen una secuencia de operaciones como un todo, almacenándola para su uso continuo. Las funciones proveen:\n\nun NOMBRE que podemos recordar y usar para invocarla\nuna solución para la necesidad de recordar operaciones individuales\nun conjunto definido de inputs y outputs esperados\nuna mayor conexión con el ambiente de programación\n\nComo el componente básico de la mayoría de los lenguajes de programación, las funciones definidas por el usuario constituyen la “programación” de cualquier abstracción que puedas hacer.\nSi has escrito una función, eres ya todo un programador.\nSource"
+    "text": "Una función es una forma de organizar y reutilizar código: reúne una secuencia de operaciones bajo un mismo nombre para poder ejecutarlas cada vez que la necesitemos.\nLas funciones nos permiten:\n\nasignar un nombre a un conjunto de instrucciones, para poder reutilizarlo fácilmente\nevitar tener que recordar y escribir cada paso de manera repetida\ntrabajar con entradas (inputs) y obtener resultados (outputs) de forma clara\nestructurar mejor nuestro código y hacerlo más legible y mantenible\n\nEn la mayoría de los lenguajes de programación, las funciones son un elemento fundamental para construir soluciones más complejas a partir de partes simples.\n\n\n\n\n\n\nNota\n\n\n\nCuando escribes una función, estás creando tu propia herramienta: es uno de los primeros pasos para pensar como programador.\n\n\nSource"
   },
   {
     "objectID": "index.html#verificación-realizar-pruebas",
     "href": "index.html#verificación-realizar-pruebas",
     "title": "El ABC de las funciones",
     "section": "4.1 Verificación / Realizar pruebas",
-    "text": "4.1 Verificación / Realizar pruebas\nUna vez definida la función, es importante evaluarla para comprobar que realiza correctamente la operación esperada.\nAntes de ejecutarla, responde:\n\n¿Qué resultado esperas obtener al evaluar my_sum(3, 4)?\n\n\n\nMostrar código\nmy_sum(3,4)\n\n\n[1] 7"
+    "text": "4.1 Verificación / Realizar pruebas\nUna vez definida la función, es importante probarla para asegurarnos de que funciona como esperamos.\nAntes de ejecutarla, reflexiona:\n\n¿Qué resultado esperas obtener al evaluar my_sum(3, 4)?\n\n\n\nMostrar código\nmy_sum(3,4)\n\n\n[1] 7\n\n\n💡 Después de ejecutar la función, deberías obtener como resultado: 7\n\n\n\n\n\n\nNota\n\n\n\nProbar funciones con ejemplos simples nos permite:\n\nverificar que el resultado es correcto\ndetectar posibles errores\nentender mejor cómo funciona la función\n\n\n\n\n\n\n\n\n\nCasos “problemáticos”:\n\n\n\n\n\nMostrar código\nmy_sum(\"3\", \"4\")\n\n\n[1] 7\n\n\nMostrar código\nmy_sum(\"hola\", 5)\n\n\nWarning in my_sum(\"hola\", 5): NAs introducidos por coerción\n\n\n[1] NA\n\n\nCaso 1: my_sum(\"3\", \"4\")\nAunque “3” y “4” son texto, la función los convierte con as.integer(). El resultado es: 7\n✔️ En este caso, la función funciona porque los valores sí pueden convertirse a números\nCaso 2: my_sum(\"hola\", 5)\n\"hola\" no puede convertirse a un número entero, as.integer(\"hola\") produce: NA\nEntonces la suma se convierte en: NA + 5 = NA\n❌ La función no falla explícitamente, pero produce un resultado incorrecto\n💡 Conclusión\n\nConvertir datos (`as.integer`) no es lo mismo que validarlos\nNuestra función actualmente puede generar resultados inválidos sin avisarnos\nEs importante agregar validación de entradas para evitar estos problemas\n\n👉 Más adelante, mejoraremos la función para que detecte y maneje este tipo de errores."
   },
   {
     "objectID": "index.html#conversión-de-fahrenheit-a-kelvin",
     "href": "index.html#conversión-de-fahrenheit-a-kelvin",
     "title": "El ABC de las funciones",
     "section": "5.1 Conversión de Fahrenheit a Kelvin",
-    "text": "5.1 Conversión de Fahrenheit a Kelvin\nVamos a crear otra función para convertir unidades de Fahrenheit a Kelvin.\n\n\nMostrar código\nfahr_to_kelvin &lt;- function(temp) {\n  kelvin &lt;- ((temp - 32) * (5 / 9)) + 273.15\n  return(kelvin)\n}\n\n\nSofware Carpentry, Funciones"
+    "text": "5.1 Conversión de Fahrenheit a Kelvin\nVamos a crear una función que convierta una temperatura dada en grados Fahrenheit a Kelvin.\n\n\nMostrar código\nfahr_to_kelvin &lt;- function(temp) {\n  kelvin &lt;- ((temp - 32) * (5 / 9)) + 273.15\n  return(kelvin)\n}\n\n\n💡 En este caso:\n\ntemp es el valor de entrada (en Fahrenheit)\naplicamos una fórmula matemática\ndevolvemos el resultado en Kelvin\n\nSofware Carpentry, Funciones"
   },
   {
     "objectID": "index.html#verificación-realizar-pruebas-1",
     "href": "index.html#verificación-realizar-pruebas-1",
     "title": "El ABC de las funciones",
     "section": "5.2 Verificación / Realizar pruebas",
-    "text": "5.2 Verificación / Realizar pruebas\n\n\nMostrar código\nfahr_to_kelvin(32) # Punto de congelación del agua\n\n\n[1] 273.15\n\n\nMostrar código\nfahr_to_kelvin(212) # Punto de ebullición del agua\n\n\n[1] 373.15"
+    "text": "5.2 Verificación / Realizar pruebas\nProbemos la función con valores conocidos:\n\n\nMostrar código\nfahr_to_kelvin(32) # Punto de congelación del agua\n\n\n[1] 273.15\n\n\nMostrar código\nfahr_to_kelvin(212) # Punto de ebullición del agua\n\n\n[1] 373.15\n\n\n💡 Interpretación de los resultados\n\n32°F ≈ 273.15 K → temperatura de congelación del agua\n212°F ≈ 373.15 K → temperatura de ebullición del agua\n\n✔️ Esto nos permite verificar que la función está implementada correctamente.\n\n\n\n\n\n\nRemark\n\n\n\nA diferencia de my_sum, esta función:\n\nrealiza una operación más compleja\ntiene un significado físico\nmuestra cómo las funciones pueden representar modelos o fórmulas reales\n\n\n\n\n\n\n\n\n\n💻Ejercicio: Conversión de Kelvin a Celsius\n\n\n\nDefine una función que:\n\nreciba una temperatura en Kelvin\nla convierta a grados Celsius\ndevuelva el resultado\n\nAdemás, prueba tu función con algunos valores.\nSofware Carpentry, Funciones\n\n\n\n\n\n\nSolución\n\n\n\n\n\n\n\nMostrar código\nkelvin_to_celsius &lt;- function(temp) {\n  celsius &lt;- temp - 273.15\n  return(celsius)\n}\n\n\nVerificación\n\n\nMostrar código\nkelvin_to_celsius(300) \n\n\n[1] 26.85\n\n\nMostrar código\nkelvin_to_celsius(400) \n\n\n[1] 126.85"
   },
   {
     "objectID": "index.html#conversión-de-kelvin-a-celsius",
@@ -47,5 +47,40 @@
     "title": "Más info",
     "section": "",
     "text": "Aquí puedes encontrar información relacionada al tema y otros tutoriales de la Autora.\n\n1 Referencias\n\nFunciones, R para Análisis Científicos Reproducibles, Software Carpentry\n\n\n\n2 Otros tutoriales\n\nCrea tu página web con Hugo Àpero\nCrea tu página web con blogdown, Hugo y Academic CV\nMathcha tutorial"
+  },
+  {
+    "objectID": "index.html#verificación",
+    "href": "index.html#verificación",
+    "title": "El ABC de las funciones",
+    "section": "5.3 Verificación",
+    "text": "5.3 Verificación\n\n\nMostrar código\nkelvin_to_celsius(300) \n\n\n[1] 26.85\n\n\nMostrar código\nkelvin_to_celsius(400) \n\n\n[1] 126.85"
+  },
+  {
+    "objectID": "index.html#las-estructuras-de-control-más-usadas",
+    "href": "index.html#las-estructuras-de-control-más-usadas",
+    "title": "El ABC de las funciones",
+    "section": "7.1 Las estructuras de control más usadas",
+    "text": "7.1 Las estructuras de control más usadas\n\n\n\n\n\n\n\nEstructura de control\nDescripción\n\n\n\n\nif, else\nSi, de otro modo: Ejecuta código según una condición.\n\n\nfor\nPara cada uno en: Repite una acción un número de veces.\n\n\nwhile\nMientras: Repite mientras se cumpla una condición.\n\n\nbreak\nInterrupción: Interrumpe un ciclo.\n\n\nnext\nSiguiente: Salta a la siguiente iteración.\n\n\ncase_when\nCondicional con diversas salidas: Evalúa múltiples condiciones.\n\n\n\nLas estructuras de control nos permiten:\n\nvalidar datos de entrada\nmanejar diferentes casos dentro de una función\nautomatizar tareas repetitivas"
+  },
+  {
+    "objectID": "index.html#if-else",
+    "href": "index.html#if-else",
+    "title": "El ABC de las funciones",
+    "section": "7.2 if, else",
+    "text": "7.2 if, else\nLas estructuras if y else nos permiten tomar decisiones dentro de nuestro código.\n\nif (si): ejecuta un bloque de código solo si se cumple una condición\nelse (de otro modo): define qué hacer cuando la condición no se cumple\n\n💡 En otras palabras, permiten que nuestro programa siga distintos caminos según la información que recibe.\nEstructura general\nPodemos representar su funcionamiento de manera general con el siguiente pseudocódigo:\n\n\nMostrar código\nInicio\n  Recibir datos de entrada\n  Evaluar condición\n\n  if (condición es TRUE) {\n    ejecutar acciones si TRUE\n  } else {\n    ejecutar acciones si FALSE\n  }\nFin\n\n\n\n\n\n\n\n\nImportante\n\n\n\n\nUna condición siempre se evalúa como TRUE o FALSE\n\n\n\nA esto lo llamamos una expresión lógica\n\n\n\n\nif\nSI una condición es verdadera, ENTONCES ejecuta ciertas acciones.\nPodemos pensarlo de forma intuitiva:\n\n\nMostrar código\nIF you are happy\n   THEN smile\nENDIF\n\n\nEjemplo sencillo:\n\n\nMostrar código\nif(4 &gt; 3) {\n  \"Verdadero\"\n}\n\n\n[1] \"Verdadero\"\n\n\n\n\n\n\n\n\n¿Qué está pasando aquí?\n\n\n\nLa condición 4 &gt; 3 es TRUE, por lo tanto, R ejecuta el código dentro de las llaves {}. El resultado es: \"Verdadero\".\nSi la condición fuera falsa, el código dentro del if no se ejecuta.\n\n\n\n\nif, else\n\nSI una condición es verdadera, ENTONCES ejecuta ciertas acciones,\nDE OTRO MODO, ejecuta una alternativa.\n\nPodemos pensarlo de forma intuitiva:\n\n\nMostrar código\nSI estás feliz ENTONCES\n  sonríe\nSINO\n  frunce el ceño\nFIN\n\n\nEjemplo sencillo:\n\n\nMostrar código\nif(4 &gt; 3) {\n  \"Verdadero\"\n} else {\n  \"Falso\"\n}\n\n\n[1] \"Verdadero\"\n\n\n\n\n\n\n\n\n¿Qué ocurre aquí?\n\n\n\n\nLa condición 4 &gt; 3 es TRUE\nPor lo tanto, se ejecuta el primer bloque (\"Verdadero\")\nEl bloque else no se ejecuta\n\nSi la condición fuera falsa, el resultado sería:\n\n\"Falso\""
+  },
+  {
+    "objectID": "index.html#if-else-1",
+    "href": "index.html#if-else-1",
+    "title": "El ABC de las funciones",
+    "section": "7.3 if, else",
+    "text": "7.3 if, else\nSI una condición es verdadera, ENTONCES ejecuta ciertas acciones.\nPodemos pensarlo de forma intuitiva:\n\n\nMostrar código\nIF you are happy\n   THEN smile\nENDIF\n\n\nEjemplo sencillo:\n\n\nMostrar código\nif(4 &gt; 3) {\n  \"Verdadero\"\n}\n\n\n[1] \"Verdadero\"\n\n\n\n\n\n\n\n\n¿Qué está pasando aquí?\n\n\n\nLa condición 4 &gt; 3 es TRUE, por lo tanto, R ejecuta el código dentro de las llaves {}. El resultado es: “Verdadero”.\nSi la condición fuera falsa, el código dentro del if no se ejecuta."
+  },
+  {
+    "objectID": "index.html#for",
+    "href": "index.html#for",
+    "title": "El ABC de las funciones",
+    "section": "7.3 for",
+    "text": "7.3 for"
   }
 ]

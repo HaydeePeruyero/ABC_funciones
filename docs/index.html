@@ -150,8 +150,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <ul class="collapse">
   <li><a href="#conversión-de-fahrenheit-a-kelvin" id="toc-conversión-de-fahrenheit-a-kelvin" class="nav-link" data-scroll-target="#conversión-de-fahrenheit-a-kelvin"><span class="header-section-number">5.1</span> Conversión de Fahrenheit a Kelvin</a></li>
   <li><a href="#verificación-realizar-pruebas-1" id="toc-verificación-realizar-pruebas-1" class="nav-link" data-scroll-target="#verificación-realizar-pruebas-1"><span class="header-section-number">5.2</span> Verificación / Realizar pruebas</a></li>
-  <li><a href="#conversión-de-kelvin-a-celsius" id="toc-conversión-de-kelvin-a-celsius" class="nav-link" data-scroll-target="#conversión-de-kelvin-a-celsius"><span class="header-section-number">5.3</span> Conversión de Kelvin a Celsius</a></li>
-  <li><a href="#verificación-realizar-pruebas-2" id="toc-verificación-realizar-pruebas-2" class="nav-link" data-scroll-target="#verificación-realizar-pruebas-2"><span class="header-section-number">5.4</span> Verificación / Realizar pruebas</a></li>
+  </ul></li>
+  <li><a href="#combinando-funciones" id="toc-combinando-funciones" class="nav-link" data-scroll-target="#combinando-funciones"><span class="header-section-number">6</span> Combinando funciones</a></li>
+  <li><a href="#estructuras-de-control" id="toc-estructuras-de-control" class="nav-link" data-scroll-target="#estructuras-de-control"><span class="header-section-number">7</span> Estructuras de control</a>
+  <ul class="collapse">
+  <li><a href="#las-estructuras-de-control-más-usadas" id="toc-las-estructuras-de-control-más-usadas" class="nav-link" data-scroll-target="#las-estructuras-de-control-más-usadas"><span class="header-section-number">7.1</span> Las estructuras de control más usadas</a></li>
+  <li><a href="#if-else" id="toc-if-else" class="nav-link" data-scroll-target="#if-else"><span class="header-section-number">7.2</span> <code>if, else</code></a></li>
+  <li><a href="#for" id="toc-for" class="nav-link" data-scroll-target="#for"><span class="header-section-number">7.3</span> <code>for</code></a></li>
   </ul></li>
   </ul>
 </nav>
@@ -193,15 +198,28 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 <section id="qué-es-una-función" class="level1" data-number="1">
 <h1 data-number="1"><span class="header-section-number">1</span> ¿Qué es una función?</h1>
-<p>Las funciones reúnen una secuencia de operaciones como un todo, almacenándola para su uso continuo. Las funciones proveen:</p>
+<p>Una función es una forma de organizar y reutilizar código: reúne una secuencia de operaciones bajo un mismo nombre para poder ejecutarlas cada vez que la necesitemos.</p>
+<p>Las funciones nos permiten:</p>
 <ul>
-<li><p>un <strong>NOMBRE</strong> que podemos recordar y usar para invocarla</p></li>
-<li><p>una <strong>solución para la necesidad</strong> de recordar operaciones individuales</p></li>
-<li><p>un conjunto definido de <strong>inputs y outputs</strong> esperados</p></li>
-<li><p>una <strong>mayor conexión</strong> con el ambiente de programación</p></li>
+<li>asignar un <strong>nombre</strong> a un conjunto de instrucciones, para poder reutilizarlo fácilmente</li>
+<li>evitar tener que recordar y escribir cada paso de manera repetida</li>
+<li>trabajar con <strong>entradas (inputs)</strong> y obtener <strong>resultados (outputs)</strong> de forma clara</li>
+<li>estructurar mejor nuestro código y hacerlo más <strong>legible y mantenible</strong></li>
 </ul>
-<p>Como el componente básico de la mayoría de los lenguajes de programación, las funciones definidas por el usuario constituyen la “programación” de cualquier abstracción que puedas hacer.</p>
-<p>Si has escrito una función, eres ya todo un programador.</p>
+<p>En la mayoría de los lenguajes de programación, las funciones son un elemento fundamental para construir soluciones más complejas a partir de partes simples.</p>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Nota
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Cuando escribes una función, estás creando tu propia herramienta: es uno de los primeros pasos para pensar como programador.</p>
+</div>
+</div>
 <p><a href="https://swcarpentry.github.io/r-novice-gapminder-es/10-functions.html">Source</a></p>
 </section>
 <section id="tips-para-generar-una-función" class="level1" data-number="2">
@@ -211,6 +229,35 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p><img src="figures/structure_functions.png" class="quarto-discovered-preview-image img-fluid figure-img"></p>
 <p></p><figcaption class="figure-caption"><a href="https://www.r-bloggers.com/2022/09/writing-functions-in-r/">R- bloggers, Writing functions in R</a></figcaption><p></p>
 </figure>
+</div>
+<p>En resumen, la estructura básica de una función en R es la siguiente:</p>
+<ul>
+<li><strong>Nombre de la función:</strong> es cómo la identificamos y la llamamos después</li>
+<li><strong>Argumentos (inputs):</strong> los valores que recibe la función</li>
+<li><strong>Cuerpo de la función:</strong> donde se realizan las operaciones</li>
+<li><strong>Valor que devuelve (output):</strong> el resultado que la función devuelve</li>
+</ul>
+<p>En conjunto, estos elementos nos permiten construir funciones claras y reutilizables.</p>
+<p><strong>Buenas prácticas al crear funciones</strong></p>
+<p>Al escribir funciones, es recomendable:</p>
+<ul>
+<li>usar <strong>nombres descriptivos</strong> tanto para la función como para sus argumentos</li>
+<li>mantener las funciones <strong>simples y enfocadas</strong> (una función = una tarea)</li>
+<li>incluir explícitamente el <code>return()</code> para mayor claridad</li>
+<li>agregar <strong>validaciones</strong> o <strong>mensajes</strong> cuando sea necesario</li>
+</ul>
+<div class="callout callout-style-default callout-important callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Importante
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Una buena función no solo funciona, también es fácil de leer, entender y reutilizar.</p>
+</div>
 </div>
 </section>
 <section id="nuestro-primer-código" class="level1" data-number="3">
@@ -240,6 +287,29 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a><span class="co"># --- Fin_de_Algoritmo(Sumar) ---</span></span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 </div>
+<p><strong>¿Cuál es el problema de este enfoque?</strong></p>
+<p>Este código funciona correctamente, pero tiene una <strong>desventaja</strong> importante:</p>
+<ul>
+<li>Cada vez que queramos realizar una suma, debemos volver a escribir todo el procedimiento</li>
+<li>El código puede volverse repetitivo y difícil de mantener</li>
+<li>No es fácil reutilizarlo en otros programas</li>
+</ul>
+<p>💡 <strong>Motivación</strong></p>
+<p>Aquí es donde entran las funciones.</p>
+<p>Una función nos permite <strong>encapsular este proceso</strong> en un solo bloque de código que podemos reutilizar tantas veces como queramos.</p>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Tip
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>En lugar de repetir el mismo algoritmo, podemos nombrarlo y usarlo cuando lo necesitemos.</p>
+</div>
+</div>
 </section>
 <section id="nuestra-primera-función" class="level1" data-number="4">
 <h1 data-number="4"><span class="header-section-number">4</span> Nuestra primera función</h1>
@@ -255,25 +325,26 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 </div>
+<p><strong>Desglose de la función:</strong></p>
 <ul>
-<li><code>my_sum</code>: es el nombre de la función que creamos.</li>
-<li><code>a,b</code>: son los dos números, los argumentos de la función.</li>
-<li><code>c &lt;- a + b</code>: es la operación suma de los argumentos.</li>
-<li><code>return(c)</code>: nos regresa el valor de la suma de los argumentos.</li>
+<li><code>my_sum</code>: es el <strong>nombre</strong> de la función que creamos.</li>
+<li><code>a,b</code>: son los <strong>argumentos</strong> de la función.</li>
+<li><code>c &lt;- a + b</code>: es la <strong>operación</strong> que realiza la función.</li>
+<li><code>return(c)</code>: devuelve el <strong>resultado</strong> de la función.</li>
 </ul>
-<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout callout-style-default callout-important callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-Nota
+Importante
 </div>
 </div>
 <div class="callout-body-container callout-body">
 <p>¿Qué nos falta en la función?</p>
 <div class="callout callout-style-default callout-tip no-icon callout-titled">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-1-contents" aria-controls="callout-1" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-4-contents" aria-controls="callout-4" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon no-icon"></i>
 </div>
@@ -282,27 +353,35 @@ Respuesta
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-1" class="callout-1-contents callout-collapse collapse">
+<div id="callout-4" class="callout-4-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
-<p>No estamos verificando que los valores de entrada sean números enteros. Actualmente, la función acepta cualquier tipo de dato que pueda sumarse.</p>
+<p>No estamos verificando que los valores de entrada sean números enteros.</p>
+<p>Actualmente, la función acepta cualquier tipo de dato que pueda sumarse, lo cual puede provocar resultados inesperados.</p>
+<p>💡 Una buena práctica es validar los datos de entrada para asegurarnos de que la función se use correctamente.</p>
 </div>
 </div>
 </div>
 </div>
 </div>
-<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout callout-style-default callout-note no-icon callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
-<i class="callout-icon"></i>
+<i class="callout-icon no-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-Ejercicio: Nuestra segunda función
+💻Ejercicio: Nuestra segunda función
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>Define una función que reciba dos <em>números enteros</em> como argumentos, calcule su suma y muestre el resultado en pantalla. Asegúrate de que la función funcione correctamente para distintos valores de entrada.</p>
+<p>Define una función que:</p>
+<ul>
+<li>reciba dos números enteros como argumentos</li>
+<li>calcule su suma</li>
+<li>devuelva el resultado</li>
+</ul>
+<p>Asegúrate de que la función funcione correctamente para distintos valores de entrada.</p>
 <div class="callout callout-style-default callout-tip no-icon callout-titled">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-3-contents" aria-controls="callout-3" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-6-contents" aria-controls="callout-6" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon no-icon"></i>
 </div>
@@ -311,22 +390,28 @@ Solución
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-3" class="callout-3-contents callout-collapse collapse">
+<div id="callout-6" class="callout-6-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <div class="cell">
 <details open="">
 <summary>Mostrar código</summary>
 <div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>my_sum <span class="ot">&lt;-</span> <span class="cf">function</span>(a, b) {</span>
-<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="co"># Convertir la entrada en números enteros</span></span>
-<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>  a <span class="ot">&lt;-</span> <span class="fu">as.integer</span>(a)</span>
-<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>  b <span class="ot">&lt;-</span> <span class="fu">as.integer</span>(b)</span>
-<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Realizar la suma de los datos de entrada</span></span>
-<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>  c <span class="ot">&lt;-</span> a <span class="sc">+</span> b</span>
-<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Mostrar el resultado</span></span>
-<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">return</span>(c)</span>
-<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Convertir la entrada en números enteros</span></span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>  a <span class="ot">&lt;-</span> <span class="fu">as.integer</span>(a)</span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>  b <span class="ot">&lt;-</span> <span class="fu">as.integer</span>(b)</span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Realizar la suma</span></span>
+<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a>  c <span class="ot">&lt;-</span> a <span class="sc">+</span> b</span>
+<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Devolver el resultado</span></span>
+<span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">return</span>(c)</span>
+<span id="cb3-12"><a href="#cb3-12" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 </div>
+<p>En esta versión estamos forzando que los datos sean enteros usando <code>as.integer()</code>.</p>
+<p>💡 Esto <span style="color: red;">NO</span> valida los datos, solo los convierte. Por ejemplo, <code>3</code> se convierte correctamente, pero <code>hola</code> se convierte en <code>NA</code>.</p>
+<p>Una mejora adicional sería validar los datos de entrada antes de realizar la operación. Esto lo veremos más adelante.</p>
 </div>
 </div>
 </div>
@@ -334,8 +419,8 @@ Solución
 </div>
 <section id="verificación-realizar-pruebas" class="level2" data-number="4.1">
 <h2 data-number="4.1" class="anchored" data-anchor-id="verificación-realizar-pruebas"><span class="header-section-number">4.1</span> Verificación / Realizar pruebas</h2>
-<p>Una vez definida la función, es importante evaluarla para comprobar que realiza correctamente la operación esperada.</p>
-<p>Antes de ejecutarla, responde:</p>
+<p>Una vez definida la función, es importante probarla para asegurarnos de que funciona como esperamos.</p>
+<p>Antes de ejecutarla, reflexiona:</p>
 <blockquote class="blockquote">
 <p><strong>¿Qué resultado esperas obtener al evaluar <code>my_sum(3, 4)</code>?</strong></p>
 </blockquote>
@@ -348,6 +433,70 @@ Solución
 <pre><code>[1] 7</code></pre>
 </div>
 </div>
+<p>💡 Después de ejecutar la función, deberías obtener como resultado: <code>7</code></p>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Nota
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Probar funciones con ejemplos simples nos permite:</p>
+<ul>
+<li><p>verificar que el resultado es correcto</p></li>
+<li><p>detectar posibles errores</p></li>
+<li><p>entender mejor cómo funciona la función</p></li>
+</ul>
+</div>
+</div>
+<div class="callout callout-style-default callout-caution callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Casos “problemáticos”:
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<div class="cell">
+<details open="">
+<summary>Mostrar código</summary>
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="fu">my_sum</span>(<span class="st">"3"</span>, <span class="st">"4"</span>)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 7</code></pre>
+</div>
+<details open="">
+<summary>Mostrar código</summary>
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="fu">my_sum</span>(<span class="st">"hola"</span>, <span class="dv">5</span>)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning in my_sum("hola", 5): NAs introducidos por coerción</code></pre>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] NA</code></pre>
+</div>
+</div>
+<p><strong>Caso 1:</strong> <code>my_sum("3", "4")</code></p>
+<p>Aunque “3” y “4” son texto, la función los convierte con <code>as.integer()</code>. El resultado es: 7</p>
+<p>✔️ En este caso, la función funciona porque los valores sí pueden convertirse a números</p>
+<p><strong>Caso 2:</strong> <code>my_sum("hola", 5)</code></p>
+<p><code>"hola"</code> no puede convertirse a un número entero, <code>as.integer("hola")</code> produce: <code>NA</code></p>
+<p>Entonces la suma se convierte en: <code>NA + 5 = NA</code></p>
+<p>❌ La función no falla explícitamente, pero produce un resultado incorrecto</p>
+<p>💡 <strong>Conclusión</strong></p>
+<ul>
+<li>Convertir datos (`as.integer`) no es lo mismo que validarlos</li>
+<li>Nuestra función actualmente puede generar resultados inválidos sin avisarnos</li>
+<li>Es importante agregar validación de entradas para evitar estos problemas</li>
+</ul>
+<p>👉 Más adelante, mejoraremos la función para que detecte y maneje este tipo de errores.</p>
+</div>
+</div>
 </section>
 </section>
 <section id="conversiones-de-temperatura" class="level1" data-number="5">
@@ -358,70 +507,412 @@ Solución
 <p></p><figcaption class="figure-caption">Fórmulas de Temperatura</figcaption><p></p>
 </figure>
 </div>
+<p>Hasta ahora hemos trabajado con una función muy simple (una suma). Ahora veremos un ejemplo más interesante: convertir unidades de temperatura.</p>
 <section id="conversión-de-fahrenheit-a-kelvin" class="level2" data-number="5.1">
 <h2 data-number="5.1" class="anchored" data-anchor-id="conversión-de-fahrenheit-a-kelvin"><span class="header-section-number">5.1</span> Conversión de Fahrenheit a Kelvin</h2>
-<p>Vamos a crear otra función para convertir unidades de Fahrenheit a Kelvin.</p>
+<p>Vamos a crear una función que convierta una temperatura dada en grados Fahrenheit a Kelvin.</p>
 <div class="cell">
 <details open="">
 <summary>Mostrar código</summary>
-<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>fahr_to_kelvin <span class="ot">&lt;-</span> <span class="cf">function</span>(temp) {</span>
-<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>  kelvin <span class="ot">&lt;-</span> ((temp <span class="sc">-</span> <span class="dv">32</span>) <span class="sc">*</span> (<span class="dv">5</span> <span class="sc">/</span> <span class="dv">9</span>)) <span class="sc">+</span> <span class="fl">273.15</span></span>
-<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">return</span>(kelvin)</span>
-<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>fahr_to_kelvin <span class="ot">&lt;-</span> <span class="cf">function</span>(temp) {</span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>  kelvin <span class="ot">&lt;-</span> ((temp <span class="sc">-</span> <span class="dv">32</span>) <span class="sc">*</span> (<span class="dv">5</span> <span class="sc">/</span> <span class="dv">9</span>)) <span class="sc">+</span> <span class="fl">273.15</span></span>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">return</span>(kelvin)</span>
+<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 </div>
+<p>💡 En este caso:</p>
+<ul>
+<li><code>temp</code> es el valor de entrada (en Fahrenheit)</li>
+<li>aplicamos una fórmula matemática</li>
+<li>devolvemos el resultado en Kelvin</li>
+</ul>
 <p><a href="https://swcarpentry.github.io/r-novice-gapminder-es/10-functions.html">Sofware Carpentry, Funciones</a></p>
 </section>
 <section id="verificación-realizar-pruebas-1" class="level2" data-number="5.2">
 <h2 data-number="5.2" class="anchored" data-anchor-id="verificación-realizar-pruebas-1"><span class="header-section-number">5.2</span> Verificación / Realizar pruebas</h2>
+<p>Probemos la función con valores conocidos:</p>
 <div class="cell">
 <details open="">
 <summary>Mostrar código</summary>
-<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="fu">fahr_to_kelvin</span>(<span class="dv">32</span>) <span class="co"># Punto de congelación del agua</span></span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="fu">fahr_to_kelvin</span>(<span class="dv">32</span>) <span class="co"># Punto de congelación del agua</span></span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 273.15</code></pre>
 </div>
 <details open="">
 <summary>Mostrar código</summary>
-<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="fu">fahr_to_kelvin</span>(<span class="dv">212</span>) <span class="co"># Punto de ebullición del agua</span></span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="fu">fahr_to_kelvin</span>(<span class="dv">212</span>) <span class="co"># Punto de ebullición del agua</span></span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 373.15</code></pre>
 </div>
 </div>
-</section>
-<section id="conversión-de-kelvin-a-celsius" class="level2" data-number="5.3">
-<h2 data-number="5.3" class="anchored" data-anchor-id="conversión-de-kelvin-a-celsius"><span class="header-section-number">5.3</span> Conversión de Kelvin a Celsius</h2>
+<p>💡 Interpretación de los resultados</p>
+<ul>
+<li>32°F ≈ 273.15 K → temperatura de congelación del agua</li>
+<li>212°F ≈ 373.15 K → temperatura de ebullición del agua</li>
+</ul>
+<p>✔️ Esto nos permite verificar que la función está implementada correctamente.</p>
+<div class="callout callout-style-default callout-warning no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Remark
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>A diferencia de <code>my_sum</code>, esta función:</p>
+<ul>
+<li>realiza una operación más compleja</li>
+<li>tiene un significado físico</li>
+<li>muestra cómo las funciones pueden representar modelos o fórmulas reales</li>
+</ul>
+</div>
+</div>
+<div class="callout callout-style-default callout-note no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+💻Ejercicio: Conversión de Kelvin a Celsius
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Define una función que:</p>
+<ul>
+<li>reciba una temperatura en Kelvin</li>
+<li>la convierta a grados Celsius</li>
+<li>devuelva el resultado</li>
+</ul>
+<p>Además, prueba tu función con algunos valores.</p>
+<p><a href="https://swcarpentry.github.io/r-novice-gapminder-es/10-functions.html">Sofware Carpentry, Funciones</a></p>
+<div class="callout callout-style-default callout-tip no-icon callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-11-contents" aria-controls="callout-11" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Solución
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-11" class="callout-11-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
 <div class="cell">
 <details open="">
 <summary>Mostrar código</summary>
-<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>kelvin_to_celsius <span class="ot">&lt;-</span> <span class="cf">function</span>(temp) {</span>
-<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>  celsius <span class="ot">&lt;-</span> temp <span class="sc">-</span> <span class="fl">273.15</span></span>
-<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">return</span>(celsius)</span>
-<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a>kelvin_to_celsius <span class="ot">&lt;-</span> <span class="cf">function</span>(temp) {</span>
+<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a>  celsius <span class="ot">&lt;-</span> temp <span class="sc">-</span> <span class="fl">273.15</span></span>
+<span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">return</span>(celsius)</span>
+<span id="cb16-4"><a href="#cb16-4" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 </div>
-<p><a href="https://swcarpentry.github.io/r-novice-gapminder-es/10-functions.html">Sofware Carpentry, Funciones</a></p>
-</section>
-<section id="verificación-realizar-pruebas-2" class="level2" data-number="5.4">
-<h2 data-number="5.4" class="anchored" data-anchor-id="verificación-realizar-pruebas-2"><span class="header-section-number">5.4</span> Verificación / Realizar pruebas</h2>
+<p><strong>Verificación</strong></p>
 <div class="cell">
 <details open="">
 <summary>Mostrar código</summary>
-<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="fu">kelvin_to_celsius</span>(<span class="dv">300</span>) </span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="fu">kelvin_to_celsius</span>(<span class="dv">300</span>) </span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 26.85</code></pre>
 </div>
 <details open="">
 <summary>Mostrar código</summary>
-<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="fu">kelvin_to_celsius</span>(<span class="dv">400</span>) </span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="fu">kelvin_to_celsius</span>(<span class="dv">400</span>) </span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 126.85</code></pre>
 </div>
 </div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="combinando-funciones" class="level1" data-number="6">
+<h1 data-number="6"><span class="header-section-number">6</span> Combinando funciones</h1>
+<p>El verdadero poder de las funciones aparece cuando las combinamos para construir soluciones más complejas.</p>
+<p>En lugar de escribir todo desde cero, podemos reutilizar funciones ya definidas.</p>
+<p>Considera las siguientes funciones:</p>
+<div class="cell">
+<details open="">
+<summary>Mostrar código</summary>
+<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a>fahr_to_kelvin <span class="ot">&lt;-</span> <span class="cf">function</span>(temp) {</span>
+<span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a>  kelvin <span class="ot">&lt;-</span> ((temp <span class="sc">-</span> <span class="dv">32</span>) <span class="sc">*</span> (<span class="dv">5</span> <span class="sc">/</span> <span class="dv">9</span>)) <span class="sc">+</span> <span class="fl">273.15</span></span>
+<span id="cb21-3"><a href="#cb21-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">return</span>(kelvin)</span>
+<span id="cb21-4"><a href="#cb21-4" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb21-5"><a href="#cb21-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb21-6"><a href="#cb21-6" aria-hidden="true" tabindex="-1"></a>kelvin_to_celsius <span class="ot">&lt;-</span> <span class="cf">function</span>(temp) {</span>
+<span id="cb21-7"><a href="#cb21-7" aria-hidden="true" tabindex="-1"></a>  celsius <span class="ot">&lt;-</span> temp <span class="sc">-</span> <span class="fl">273.15</span></span>
+<span id="cb21-8"><a href="#cb21-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">return</span>(celsius)</span>
+<span id="cb21-9"><a href="#cb21-9" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+</div>
+<div class="callout callout-style-default callout-note no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+📝Desafío: Combinando funciones
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Define una función que convierta directamente de Fahrenheit a Celsius, reutilizando las funciones anteriores.</p>
+<p>💡 Sugerencia: usa la salida de una función como entrada de la otra.</p>
+<div class="callout callout-style-default callout-tip no-icon callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-13-contents" aria-controls="callout-13" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Solución
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-13" class="callout-13-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<div class="cell">
+<details open="">
+<summary>Mostrar código</summary>
+<div class="sourceCode cell-code" id="cb22"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a>fahr_to_celsius <span class="ot">&lt;-</span> <span class="cf">function</span>(temp) {</span>
+<span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a>  temp_k <span class="ot">&lt;-</span> <span class="fu">fahr_to_kelvin</span>(temp)</span>
+<span id="cb22-3"><a href="#cb22-3" aria-hidden="true" tabindex="-1"></a>  result <span class="ot">&lt;-</span> <span class="fu">kelvin_to_celsius</span>(temp_k)</span>
+<span id="cb22-4"><a href="#cb22-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">return</span>(result)</span>
+<span id="cb22-5"><a href="#cb22-5" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+</div>
+<p><strong>Verificación</strong></p>
+<div class="cell">
+<details open="">
+<summary>Mostrar código</summary>
+<div class="sourceCode cell-code" id="cb23"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a><span class="fu">fahr_to_celsius</span>(<span class="dv">68</span>)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 20</code></pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="estructuras-de-control" class="level1" data-number="7">
+<h1 data-number="7"><span class="header-section-number">7</span> Estructuras de control</h1>
+<p>Las estructuras de control nos permiten definir cómo y cuándo se ejecuta nuestro código.</p>
+<p>Gracias a ellas, podemos tomar decisiones dentro de un programa, por ejemplo:</p>
+<ul>
+<li>ejecutar una acción solo si se cumple una condición</li>
+<li>repetir una operación varias veces</li>
+<li>controlar el flujo de ejecución</li>
+</ul>
+<p>Esto es fundamental para construir programas más complejos y, en particular, para definir funciones más robustas y flexibles.</p>
+<div class="callout callout-style-default callout-important callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Importante
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Sin estructuras de control, nuestros programas serían siempre lineales y poco dinámicos.</p>
+</div>
+</div>
+<p><a href="https://bookdown.org/jboscomendoza/r-principiantes4/estructuras-de-control.html">R para principiantes, cap 9</a></p>
+<section id="las-estructuras-de-control-más-usadas" class="level2" data-number="7.1">
+<h2 data-number="7.1" class="anchored" data-anchor-id="las-estructuras-de-control-más-usadas"><span class="header-section-number">7.1</span> Las estructuras de control más usadas</h2>
+<table class="table">
+<colgroup>
+<col style="width: 50%">
+<col style="width: 50%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Estructura de control</th>
+<th>Descripción</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><code>if, else</code></td>
+<td>Si, de otro modo: Ejecuta código según una condición.</td>
+</tr>
+<tr class="even">
+<td><code>for</code></td>
+<td>Para cada uno en: Repite una acción un número de veces.</td>
+</tr>
+<tr class="odd">
+<td><code>while</code></td>
+<td>Mientras: Repite mientras se cumpla una condición.</td>
+</tr>
+<tr class="even">
+<td><code>break</code></td>
+<td>Interrupción: Interrumpe un ciclo.</td>
+</tr>
+<tr class="odd">
+<td><code>next</code></td>
+<td>Siguiente: Salta a la siguiente iteración.</td>
+</tr>
+<tr class="even">
+<td><code>case_when</code></td>
+<td>Condicional con diversas salidas: Evalúa múltiples condiciones.</td>
+</tr>
+</tbody>
+</table>
+<p>Las estructuras de control nos permiten:</p>
+<ul>
+<li>validar datos de entrada</li>
+<li>manejar diferentes casos dentro de una función</li>
+<li>automatizar tareas repetitivas</li>
+</ul>
+</section>
+<section id="if-else" class="level2" data-number="7.2">
+<h2 data-number="7.2" class="anchored" data-anchor-id="if-else"><span class="header-section-number">7.2</span> <code>if, else</code></h2>
+<p>Las estructuras <code>if</code> y <code>else</code> nos permiten tomar decisiones dentro de nuestro código.</p>
+<ul>
+<li><code>if</code> (si): ejecuta un bloque de código solo si se cumple una condición</li>
+<li><code>else</code> (de otro modo): define qué hacer cuando la condición no se cumple</li>
+</ul>
+<p>💡 En otras palabras, permiten que nuestro programa siga distintos caminos según la información que recibe.</p>
+<p><strong>Estructura general</strong></p>
+<p>Podemos representar su funcionamiento de manera general con el siguiente pseudocódigo:</p>
+<div class="cell">
+<details open="">
+<summary>Mostrar código</summary>
+<div class="sourceCode cell-code" id="cb25"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a>Inicio</span>
+<span id="cb25-2"><a href="#cb25-2" aria-hidden="true" tabindex="-1"></a>  Recibir datos de entrada</span>
+<span id="cb25-3"><a href="#cb25-3" aria-hidden="true" tabindex="-1"></a>  Evaluar condición</span>
+<span id="cb25-4"><a href="#cb25-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-5"><a href="#cb25-5" aria-hidden="true" tabindex="-1"></a>  <span class="cf">if</span> (condición es <span class="cn">TRUE</span>) {</span>
+<span id="cb25-6"><a href="#cb25-6" aria-hidden="true" tabindex="-1"></a>    ejecutar acciones si <span class="cn">TRUE</span></span>
+<span id="cb25-7"><a href="#cb25-7" aria-hidden="true" tabindex="-1"></a>  } <span class="cf">else</span> {</span>
+<span id="cb25-8"><a href="#cb25-8" aria-hidden="true" tabindex="-1"></a>    ejecutar acciones si <span class="cn">FALSE</span></span>
+<span id="cb25-9"><a href="#cb25-9" aria-hidden="true" tabindex="-1"></a>  }</span>
+<span id="cb25-10"><a href="#cb25-10" aria-hidden="true" tabindex="-1"></a>Fin</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+</div>
+<div class="callout callout-style-default callout-important callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Importante
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<ul>
+<li>Una condición siempre se evalúa como <strong>TRUE</strong> o <strong>FALSE</strong></li>
+</ul>
+<!-- -->
+<ul>
+<li>A esto lo llamamos una <strong>expresión lógica</strong></li>
+</ul>
+</div>
+</div>
+<section id="if" class="level3">
+<h3 class="anchored" data-anchor-id="if"><code>if</code></h3>
+<p><code>SI</code> una condición es verdadera, <code>ENTONCES</code> ejecuta ciertas acciones.</p>
+<p>Podemos pensarlo de forma intuitiva:</p>
+<div class="cell">
+<details open="">
+<summary>Mostrar código</summary>
+<div class="sourceCode cell-code" id="cb26"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a>IF you are happy</span>
+<span id="cb26-2"><a href="#cb26-2" aria-hidden="true" tabindex="-1"></a>   THEN smile</span>
+<span id="cb26-3"><a href="#cb26-3" aria-hidden="true" tabindex="-1"></a>ENDIF</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+</div>
+<p><strong>Ejemplo sencillo:</strong></p>
+<div class="cell">
+<details open="">
+<summary>Mostrar código</summary>
+<div class="sourceCode cell-code" id="cb27"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span>(<span class="dv">4</span> <span class="sc">&gt;</span> <span class="dv">3</span>) {</span>
+<span id="cb27-2"><a href="#cb27-2" aria-hidden="true" tabindex="-1"></a>  <span class="st">"Verdadero"</span></span>
+<span id="cb27-3"><a href="#cb27-3" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "Verdadero"</code></pre>
+</div>
+</div>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+¿Qué está pasando aquí?
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>La condición <code>4 &gt; 3</code> es <code>TRUE</code>, por lo tanto, R ejecuta el código dentro de las llaves <code>{}</code>. El resultado es: <code>"Verdadero"</code>.</p>
+<p>Si la condición fuera falsa, el código dentro del <code>if</code> no se ejecuta.</p>
+</div>
+</div>
+</section>
+<section id="if-else-1" class="level3">
+<h3 class="anchored" data-anchor-id="if-else-1"><code>if, else</code></h3>
+<ul>
+<li><code>SI</code> una condición es verdadera, <code>ENTONCES</code> ejecuta ciertas acciones,</li>
+<li><code>DE OTRO MODO</code>, ejecuta una alternativa.</li>
+</ul>
+<p>Podemos pensarlo de forma intuitiva:</p>
+<div class="cell">
+<details open="">
+<summary>Mostrar código</summary>
+<div class="sourceCode cell-code" id="cb29"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a>SI estás feliz ENTONCES</span>
+<span id="cb29-2"><a href="#cb29-2" aria-hidden="true" tabindex="-1"></a>  sonríe</span>
+<span id="cb29-3"><a href="#cb29-3" aria-hidden="true" tabindex="-1"></a>SINO</span>
+<span id="cb29-4"><a href="#cb29-4" aria-hidden="true" tabindex="-1"></a>  frunce el ceño</span>
+<span id="cb29-5"><a href="#cb29-5" aria-hidden="true" tabindex="-1"></a>FIN</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+</div>
+<p><strong>Ejemplo sencillo:</strong></p>
+<div class="cell">
+<details open="">
+<summary>Mostrar código</summary>
+<div class="sourceCode cell-code" id="cb30"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span>(<span class="dv">4</span> <span class="sc">&gt;</span> <span class="dv">3</span>) {</span>
+<span id="cb30-2"><a href="#cb30-2" aria-hidden="true" tabindex="-1"></a>  <span class="st">"Verdadero"</span></span>
+<span id="cb30-3"><a href="#cb30-3" aria-hidden="true" tabindex="-1"></a>} <span class="cf">else</span> {</span>
+<span id="cb30-4"><a href="#cb30-4" aria-hidden="true" tabindex="-1"></a>  <span class="st">"Falso"</span></span>
+<span id="cb30-5"><a href="#cb30-5" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "Verdadero"</code></pre>
+</div>
+</div>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+¿Qué ocurre aquí?
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<ul>
+<li><p>La condición <code>4 &gt; 3</code> es <code>TRUE</code></p></li>
+<li><p>Por lo tanto, se ejecuta el primer bloque (<code>"Verdadero"</code>)</p></li>
+<li><p>El bloque <code>else</code> <strong>no se ejecuta</strong></p></li>
+</ul>
+<p>Si la condición fuera falsa, el resultado sería:</p>
+<ul>
+<li><code>"Falso"</code></li>
+</ul>
+</div>
+</div>
+</section>
+</section>
+<section id="for" class="level2" data-number="7.3">
+<h2 data-number="7.3" class="anchored" data-anchor-id="for"><span class="header-section-number">7.3</span> <code>for</code></h2>
 
 
 <!-- -->
@@ -714,167 +1205,493 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   }
 });
 </script><div class="modal fade" id="quarto-embedded-source-code-modal" tabindex="-1" aria-labelledby="quarto-embedded-source-code-modal-label" aria-hidden="true"><div class="modal-dialog modal-dialog-scrollable"><div class="modal-content"><div class="modal-header"><h5 class="modal-title" id="quarto-embedded-source-code-modal-label">Ejecutar el código</h5><button class="btn-close" data-bs-dismiss="modal"></button></div><div class="modal-body"><div class="">
-<div class="sourceCode" id="cb16" data-shortcodes="false"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
-<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a><span class="an">title:</span><span class="co"> "El ABC de las funciones"</span></span>
-<span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a><span class="an">author:</span><span class="co"> "Haydeé Peruyero, [https://haydeeperuyero.github.io/](https://haydeeperuyero.github.io/)"</span></span>
-<span id="cb16-4"><a href="#cb16-4" aria-hidden="true" tabindex="-1"></a><span class="an">lang:</span><span class="co"> es</span></span>
-<span id="cb16-5"><a href="#cb16-5" aria-hidden="true" tabindex="-1"></a><span class="an">description:</span><span class="co"> "Material introductorio para crear funciones en R de los Viernes de Bioinfo 2026. Basado en [El ABC de las funciones y loops en R por Evelia Coss](https://eveliacoss.github.io/ViernesBioinfo2023/Clase5_20Oct2023/D5_Loop.html#1)"</span></span>
-<span id="cb16-6"><a href="#cb16-6" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
-<span id="cb16-7"><a href="#cb16-7" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb16-8"><a href="#cb16-8" aria-hidden="true" tabindex="-1"></a><span class="fu"># ¿Qué es una función?</span></span>
-<span id="cb16-9"><a href="#cb16-9" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb16-10"><a href="#cb16-10" aria-hidden="true" tabindex="-1"></a>Las funciones reúnen una secuencia de operaciones como un todo, almacenándola para su uso continuo. Las funciones proveen:</span>
-<span id="cb16-11"><a href="#cb16-11" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb16-12"><a href="#cb16-12" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>un **NOMBRE** que podemos recordar y usar para invocarla</span>
-<span id="cb16-13"><a href="#cb16-13" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb16-14"><a href="#cb16-14" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>una **solución para la necesidad** de recordar operaciones individuales</span>
-<span id="cb16-15"><a href="#cb16-15" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb16-16"><a href="#cb16-16" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>un conjunto definido de **inputs y outputs** esperados</span>
-<span id="cb16-17"><a href="#cb16-17" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb16-18"><a href="#cb16-18" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>una **mayor conexión** con el ambiente de programación</span>
-<span id="cb16-19"><a href="#cb16-19" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb16-20"><a href="#cb16-20" aria-hidden="true" tabindex="-1"></a>Como el componente básico de la mayoría de los lenguajes de programación, las funciones definidas por el usuario constituyen la “programación” de cualquier abstracción que puedas hacer.</span>
-<span id="cb16-21"><a href="#cb16-21" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb16-22"><a href="#cb16-22" aria-hidden="true" tabindex="-1"></a>Si has escrito una función, eres ya todo un programador.</span>
-<span id="cb16-23"><a href="#cb16-23" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb16-24"><a href="#cb16-24" aria-hidden="true" tabindex="-1"></a><span class="co">[</span><span class="ot">Source</span><span class="co">](https://swcarpentry.github.io/r-novice-gapminder-es/10-functions.html)</span></span>
-<span id="cb16-25"><a href="#cb16-25" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb16-26"><a href="#cb16-26" aria-hidden="true" tabindex="-1"></a><span class="fu"># Tips para generar una función</span></span>
-<span id="cb16-27"><a href="#cb16-27" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb16-28"><a href="#cb16-28" aria-hidden="true" tabindex="-1"></a>![<span class="co">[</span><span class="ot">R- bloggers, Writing functions in R</span><span class="co">](https://www.r-bloggers.com/2022/09/writing-functions-in-r/)</span>](figures/structure_functions.png)</span>
-<span id="cb16-29"><a href="#cb16-29" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb16-30"><a href="#cb16-30" aria-hidden="true" tabindex="-1"></a><span class="fu"># Nuestro primer código</span></span>
-<span id="cb16-31"><a href="#cb16-31" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb16-32"><a href="#cb16-32" aria-hidden="true" tabindex="-1"></a><span class="at">&gt; **Problema:** Realizar un algoritmo que solicite al usuario *dos numeros enteros*, realice su suma y la imprima en pantalla.</span></span>
-<span id="cb16-33"><a href="#cb16-33" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb16-34"><a href="#cb16-34" aria-hidden="true" tabindex="-1"></a><span class="in">```{r Primer codigo, eval=FALSE}</span></span>
-<span id="cb16-35"><a href="#cb16-35" aria-hidden="true" tabindex="-1"></a><span class="co"># ---Algoritmo(Sumar)---</span></span>
-<span id="cb16-36"><a href="#cb16-36" aria-hidden="true" tabindex="-1"></a><span class="co"># 1) Solicitar al usuario los datos de entrada (variable a y b).</span></span>
-<span id="cb16-37"><a href="#cb16-37" aria-hidden="true" tabindex="-1"></a><span class="co"># --INICIO--</span></span>
-<span id="cb16-38"><a href="#cb16-38" aria-hidden="true" tabindex="-1"></a>a <span class="ot">&lt;-</span> <span class="fu">readline</span>(<span class="st">"Digite el primer numero: "</span>)</span>
-<span id="cb16-39"><a href="#cb16-39" aria-hidden="true" tabindex="-1"></a>b <span class="ot">&lt;-</span> <span class="fu">readline</span>(<span class="st">"Digite el segundo numero: "</span>)</span>
-<span id="cb16-40"><a href="#cb16-40" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb16-41"><a href="#cb16-41" aria-hidden="true" tabindex="-1"></a><span class="co"># Convertir la entrada en números enteros</span></span>
-<span id="cb16-42"><a href="#cb16-42" aria-hidden="true" tabindex="-1"></a>a <span class="ot">&lt;-</span> <span class="fu">as.integer</span>(a)</span>
-<span id="cb16-43"><a href="#cb16-43" aria-hidden="true" tabindex="-1"></a>b <span class="ot">&lt;-</span> <span class="fu">as.integer</span>(b)</span>
-<span id="cb16-44"><a href="#cb16-44" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb16-45"><a href="#cb16-45" aria-hidden="true" tabindex="-1"></a><span class="co"># 2) Realizar la suma de los datos de entrada.</span></span>
-<span id="cb16-46"><a href="#cb16-46" aria-hidden="true" tabindex="-1"></a>c <span class="ot">&lt;-</span> a <span class="sc">+</span> b </span>
-<span id="cb16-47"><a href="#cb16-47" aria-hidden="true" tabindex="-1"></a> </span>
-<span id="cb16-48"><a href="#cb16-48" aria-hidden="true" tabindex="-1"></a><span class="co"># 3) Mostrar el resultado.</span></span>
-<span id="cb16-49"><a href="#cb16-49" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(c)</span>
-<span id="cb16-50"><a href="#cb16-50" aria-hidden="true" tabindex="-1"></a><span class="co"># --FIN_INICIO--</span></span>
-<span id="cb16-51"><a href="#cb16-51" aria-hidden="true" tabindex="-1"></a><span class="co"># --- Fin_de_Algoritmo(Sumar) ---</span></span>
-<span id="cb16-52"><a href="#cb16-52" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb16-53"><a href="#cb16-53" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb16-54"><a href="#cb16-54" aria-hidden="true" tabindex="-1"></a><span class="fu"># Nuestra primera función</span></span>
-<span id="cb16-55"><a href="#cb16-55" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb16-56"><a href="#cb16-56" aria-hidden="true" tabindex="-1"></a><span class="at">&gt; **Problema:** Crear una función que reciba *dos numeros enteros* y realice su suma.</span></span>
-<span id="cb16-57"><a href="#cb16-57" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb16-58"><a href="#cb16-58" aria-hidden="true" tabindex="-1"></a><span class="in">```{r Funcion - my_sum v1}</span></span>
-<span id="cb16-59"><a href="#cb16-59" aria-hidden="true" tabindex="-1"></a>my_sum <span class="ot">&lt;-</span> <span class="cf">function</span>(a, b) {</span>
-<span id="cb16-60"><a href="#cb16-60" aria-hidden="true" tabindex="-1"></a>  c <span class="ot">&lt;-</span> a <span class="sc">+</span> b</span>
-<span id="cb16-61"><a href="#cb16-61" aria-hidden="true" tabindex="-1"></a>  <span class="fu">return</span>(c)</span>
-<span id="cb16-62"><a href="#cb16-62" aria-hidden="true" tabindex="-1"></a>}</span>
-<span id="cb16-63"><a href="#cb16-63" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb16-64"><a href="#cb16-64" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb16-65"><a href="#cb16-65" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span><span class="in">`my_sum`</span>: es el nombre de la función que creamos.</span>
-<span id="cb16-66"><a href="#cb16-66" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span><span class="in">`a,b`</span>: son los dos números, los argumentos de la función.</span>
-<span id="cb16-67"><a href="#cb16-67" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span><span class="in">`c &lt;- a + b`</span>: es la operación suma de los argumentos.</span>
-<span id="cb16-68"><a href="#cb16-68" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span><span class="in">`return(c)`</span>: nos regresa el valor de la suma de los argumentos.</span>
-<span id="cb16-69"><a href="#cb16-69" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb16-70"><a href="#cb16-70" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb16-71"><a href="#cb16-71" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb16-72"><a href="#cb16-72" aria-hidden="true" tabindex="-1"></a>::::: callout-note</span>
-<span id="cb16-73"><a href="#cb16-73" aria-hidden="true" tabindex="-1"></a>¿Qué nos falta en la función?</span>
-<span id="cb16-74"><a href="#cb16-74" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb16-75"><a href="#cb16-75" aria-hidden="true" tabindex="-1"></a>::: {.callout-tip collapse="true" icon="false"}</span>
-<span id="cb16-76"><a href="#cb16-76" aria-hidden="true" tabindex="-1"></a><span class="fu">## Respuesta</span></span>
-<span id="cb16-77"><a href="#cb16-77" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb16-78"><a href="#cb16-78" aria-hidden="true" tabindex="-1"></a>No estamos verificando que los valores de entrada sean números enteros. Actualmente, la función acepta cualquier tipo de dato que pueda sumarse.</span>
-<span id="cb16-79"><a href="#cb16-79" aria-hidden="true" tabindex="-1"></a>:::</span>
-<span id="cb16-80"><a href="#cb16-80" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb16-81"><a href="#cb16-81" aria-hidden="true" tabindex="-1"></a>:::::</span>
-<span id="cb16-82"><a href="#cb16-82" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb16-83"><a href="#cb16-83" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb16-84"><a href="#cb16-84" aria-hidden="true" tabindex="-1"></a>::::: callout-note</span>
-<span id="cb16-85"><a href="#cb16-85" aria-hidden="true" tabindex="-1"></a><span class="fu">## Ejercicio: Nuestra segunda función</span></span>
-<span id="cb16-86"><a href="#cb16-86" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb16-87"><a href="#cb16-87" aria-hidden="true" tabindex="-1"></a>Define una función que reciba dos *números enteros* como argumentos, calcule su suma y muestre el resultado en pantalla. Asegúrate de que la función funcione correctamente para distintos valores de entrada.</span>
-<span id="cb16-88"><a href="#cb16-88" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb16-89"><a href="#cb16-89" aria-hidden="true" tabindex="-1"></a>::: {.callout-tip collapse="true" icon="false"}</span>
-<span id="cb16-90"><a href="#cb16-90" aria-hidden="true" tabindex="-1"></a><span class="fu">## Solución</span></span>
-<span id="cb16-91"><a href="#cb16-91" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb16-92"><a href="#cb16-92" aria-hidden="true" tabindex="-1"></a><span class="in">```{r Funcion - my_sum v2}</span></span>
-<span id="cb16-93"><a href="#cb16-93" aria-hidden="true" tabindex="-1"></a>my_sum <span class="ot">&lt;-</span> <span class="cf">function</span>(a, b) {</span>
-<span id="cb16-94"><a href="#cb16-94" aria-hidden="true" tabindex="-1"></a><span class="co"># Convertir la entrada en números enteros</span></span>
-<span id="cb16-95"><a href="#cb16-95" aria-hidden="true" tabindex="-1"></a>  a <span class="ot">&lt;-</span> <span class="fu">as.integer</span>(a)</span>
-<span id="cb16-96"><a href="#cb16-96" aria-hidden="true" tabindex="-1"></a>  b <span class="ot">&lt;-</span> <span class="fu">as.integer</span>(b)</span>
-<span id="cb16-97"><a href="#cb16-97" aria-hidden="true" tabindex="-1"></a><span class="co"># Realizar la suma de los datos de entrada</span></span>
-<span id="cb16-98"><a href="#cb16-98" aria-hidden="true" tabindex="-1"></a>  c <span class="ot">&lt;-</span> a <span class="sc">+</span> b</span>
-<span id="cb16-99"><a href="#cb16-99" aria-hidden="true" tabindex="-1"></a><span class="co"># Mostrar el resultado</span></span>
-<span id="cb16-100"><a href="#cb16-100" aria-hidden="true" tabindex="-1"></a>  <span class="fu">return</span>(c)</span>
-<span id="cb16-101"><a href="#cb16-101" aria-hidden="true" tabindex="-1"></a>}</span>
-<span id="cb16-102"><a href="#cb16-102" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb16-103"><a href="#cb16-103" aria-hidden="true" tabindex="-1"></a>:::</span>
-<span id="cb16-104"><a href="#cb16-104" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb16-105"><a href="#cb16-105" aria-hidden="true" tabindex="-1"></a>:::::</span>
-<span id="cb16-106"><a href="#cb16-106" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb16-107"><a href="#cb16-107" aria-hidden="true" tabindex="-1"></a><span class="fu">## Verificación / Realizar pruebas</span></span>
-<span id="cb16-108"><a href="#cb16-108" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb16-109"><a href="#cb16-109" aria-hidden="true" tabindex="-1"></a>Una vez definida la función, es importante evaluarla para comprobar que realiza correctamente la operación esperada.</span>
-<span id="cb16-110"><a href="#cb16-110" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb16-111"><a href="#cb16-111" aria-hidden="true" tabindex="-1"></a>Antes de ejecutarla, responde:</span>
-<span id="cb16-112"><a href="#cb16-112" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb16-113"><a href="#cb16-113" aria-hidden="true" tabindex="-1"></a><span class="at">&gt; **¿Qué resultado esperas obtener al evaluar `my_sum(3, 4)`?**</span></span>
-<span id="cb16-114"><a href="#cb16-114" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb16-115"><a href="#cb16-115" aria-hidden="true" tabindex="-1"></a><span class="in">```{r Verfiicar my_sum}</span></span>
-<span id="cb16-116"><a href="#cb16-116" aria-hidden="true" tabindex="-1"></a><span class="fu">my_sum</span>(<span class="dv">3</span>,<span class="dv">4</span>)</span>
-<span id="cb16-117"><a href="#cb16-117" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb16-118"><a href="#cb16-118" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb16-119"><a href="#cb16-119" aria-hidden="true" tabindex="-1"></a><span class="fu"># Conversiones de temperatura</span></span>
-<span id="cb16-120"><a href="#cb16-120" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb16-121"><a href="#cb16-121" aria-hidden="true" tabindex="-1"></a><span class="al">![Fórmulas de Temperatura](figures/Formulas_Temperatura.png)</span></span>
-<span id="cb16-122"><a href="#cb16-122" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb16-123"><a href="#cb16-123" aria-hidden="true" tabindex="-1"></a><span class="fu">## Conversión de Fahrenheit a Kelvin</span></span>
-<span id="cb16-124"><a href="#cb16-124" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb16-125"><a href="#cb16-125" aria-hidden="true" tabindex="-1"></a>Vamos a crear otra función para convertir unidades de Fahrenheit a Kelvin.</span>
-<span id="cb16-126"><a href="#cb16-126" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb16-127"><a href="#cb16-127" aria-hidden="true" tabindex="-1"></a><span class="in">```{r Funcion - fahr_to_kelvin}</span></span>
-<span id="cb16-128"><a href="#cb16-128" aria-hidden="true" tabindex="-1"></a>fahr_to_kelvin <span class="ot">&lt;-</span> <span class="cf">function</span>(temp) {</span>
-<span id="cb16-129"><a href="#cb16-129" aria-hidden="true" tabindex="-1"></a>  kelvin <span class="ot">&lt;-</span> ((temp <span class="sc">-</span> <span class="dv">32</span>) <span class="sc">*</span> (<span class="dv">5</span> <span class="sc">/</span> <span class="dv">9</span>)) <span class="sc">+</span> <span class="fl">273.15</span></span>
-<span id="cb16-130"><a href="#cb16-130" aria-hidden="true" tabindex="-1"></a>  <span class="fu">return</span>(kelvin)</span>
-<span id="cb16-131"><a href="#cb16-131" aria-hidden="true" tabindex="-1"></a>}</span>
-<span id="cb16-132"><a href="#cb16-132" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb16-133"><a href="#cb16-133" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb16-134"><a href="#cb16-134" aria-hidden="true" tabindex="-1"></a><span class="co">[</span><span class="ot">Sofware Carpentry, Funciones</span><span class="co">](https://swcarpentry.github.io/r-novice-gapminder-es/10-functions.html)</span></span>
-<span id="cb16-135"><a href="#cb16-135" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb16-136"><a href="#cb16-136" aria-hidden="true" tabindex="-1"></a><span class="fu">## Verificación / Realizar pruebas</span></span>
-<span id="cb16-137"><a href="#cb16-137" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb16-138"><a href="#cb16-138" aria-hidden="true" tabindex="-1"></a><span class="in">```{r Verfiicar fahr_to_kelvin}</span></span>
-<span id="cb16-139"><a href="#cb16-139" aria-hidden="true" tabindex="-1"></a><span class="fu">fahr_to_kelvin</span>(<span class="dv">32</span>) <span class="co"># Punto de congelación del agua</span></span>
-<span id="cb16-140"><a href="#cb16-140" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb16-141"><a href="#cb16-141" aria-hidden="true" tabindex="-1"></a><span class="fu">fahr_to_kelvin</span>(<span class="dv">212</span>) <span class="co"># Punto de ebullición del agua</span></span>
-<span id="cb16-142"><a href="#cb16-142" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb16-143"><a href="#cb16-143" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb16-144"><a href="#cb16-144" aria-hidden="true" tabindex="-1"></a><span class="fu">## Conversión de Kelvin a Celsius</span></span>
-<span id="cb16-145"><a href="#cb16-145" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb16-146"><a href="#cb16-146" aria-hidden="true" tabindex="-1"></a><span class="in">```{r Funcion - kelvin_to_celsius}</span></span>
-<span id="cb16-147"><a href="#cb16-147" aria-hidden="true" tabindex="-1"></a>kelvin_to_celsius <span class="ot">&lt;-</span> <span class="cf">function</span>(temp) {</span>
-<span id="cb16-148"><a href="#cb16-148" aria-hidden="true" tabindex="-1"></a>  celsius <span class="ot">&lt;-</span> temp <span class="sc">-</span> <span class="fl">273.15</span></span>
-<span id="cb16-149"><a href="#cb16-149" aria-hidden="true" tabindex="-1"></a>  <span class="fu">return</span>(celsius)</span>
-<span id="cb16-150"><a href="#cb16-150" aria-hidden="true" tabindex="-1"></a>}</span>
-<span id="cb16-151"><a href="#cb16-151" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb16-152"><a href="#cb16-152" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb16-153"><a href="#cb16-153" aria-hidden="true" tabindex="-1"></a><span class="co">[</span><span class="ot">Sofware Carpentry, Funciones</span><span class="co">](https://swcarpentry.github.io/r-novice-gapminder-es/10-functions.html)</span></span>
-<span id="cb16-154"><a href="#cb16-154" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb16-155"><a href="#cb16-155" aria-hidden="true" tabindex="-1"></a><span class="fu">## Verificación / Realizar pruebas</span></span>
-<span id="cb16-156"><a href="#cb16-156" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb16-157"><a href="#cb16-157" aria-hidden="true" tabindex="-1"></a><span class="in">```{r Verfiicar kelvin_to_celsius}</span></span>
-<span id="cb16-158"><a href="#cb16-158" aria-hidden="true" tabindex="-1"></a><span class="fu">kelvin_to_celsius</span>(<span class="dv">300</span>) </span>
-<span id="cb16-159"><a href="#cb16-159" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb16-160"><a href="#cb16-160" aria-hidden="true" tabindex="-1"></a><span class="fu">kelvin_to_celsius</span>(<span class="dv">400</span>) </span>
-<span id="cb16-161"><a href="#cb16-161" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb32" data-shortcodes="false"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb32-1"><a href="#cb32-1" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
+<span id="cb32-2"><a href="#cb32-2" aria-hidden="true" tabindex="-1"></a><span class="an">title:</span><span class="co"> "El ABC de las funciones"</span></span>
+<span id="cb32-3"><a href="#cb32-3" aria-hidden="true" tabindex="-1"></a><span class="an">author:</span><span class="co"> "Haydeé Peruyero, [https://haydeeperuyero.github.io/](https://haydeeperuyero.github.io/)"</span></span>
+<span id="cb32-4"><a href="#cb32-4" aria-hidden="true" tabindex="-1"></a><span class="an">lang:</span><span class="co"> es</span></span>
+<span id="cb32-5"><a href="#cb32-5" aria-hidden="true" tabindex="-1"></a><span class="an">description:</span><span class="co"> "Material introductorio para crear funciones en R de los Viernes de Bioinfo 2026. Basado en [El ABC de las funciones y loops en R por Evelia Coss](https://eveliacoss.github.io/ViernesBioinfo2023/Clase5_20Oct2023/D5_Loop.html#1)"</span></span>
+<span id="cb32-6"><a href="#cb32-6" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
+<span id="cb32-7"><a href="#cb32-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb32-8"><a href="#cb32-8" aria-hidden="true" tabindex="-1"></a><span class="fu"># ¿Qué es una función?</span></span>
+<span id="cb32-9"><a href="#cb32-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb32-10"><a href="#cb32-10" aria-hidden="true" tabindex="-1"></a>Una función es una forma de organizar y reutilizar código: reúne una secuencia de operaciones bajo un mismo nombre para poder ejecutarlas cada vez que la necesitemos.</span>
+<span id="cb32-11"><a href="#cb32-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb32-12"><a href="#cb32-12" aria-hidden="true" tabindex="-1"></a>Las funciones nos permiten:</span>
+<span id="cb32-13"><a href="#cb32-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb32-14"><a href="#cb32-14" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>asignar un **nombre** a un conjunto de instrucciones, para poder reutilizarlo fácilmente</span>
+<span id="cb32-15"><a href="#cb32-15" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>evitar tener que recordar y escribir cada paso de manera repetida</span>
+<span id="cb32-16"><a href="#cb32-16" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>trabajar con **entradas (inputs)** y obtener **resultados (outputs)** de forma clara</span>
+<span id="cb32-17"><a href="#cb32-17" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>estructurar mejor nuestro código y hacerlo más **legible y mantenible**</span>
+<span id="cb32-18"><a href="#cb32-18" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb32-19"><a href="#cb32-19" aria-hidden="true" tabindex="-1"></a>En la mayoría de los lenguajes de programación, las funciones son un elemento fundamental para construir soluciones más complejas a partir de partes simples.</span>
+<span id="cb32-20"><a href="#cb32-20" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb32-21"><a href="#cb32-21" aria-hidden="true" tabindex="-1"></a>::: callout-note</span>
+<span id="cb32-22"><a href="#cb32-22" aria-hidden="true" tabindex="-1"></a>Cuando escribes una función, estás creando tu propia herramienta: es uno de los primeros pasos para pensar como programador.</span>
+<span id="cb32-23"><a href="#cb32-23" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb32-24"><a href="#cb32-24" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb32-25"><a href="#cb32-25" aria-hidden="true" tabindex="-1"></a><span class="co">[</span><span class="ot">Source</span><span class="co">](https://swcarpentry.github.io/r-novice-gapminder-es/10-functions.html)</span></span>
+<span id="cb32-26"><a href="#cb32-26" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb32-27"><a href="#cb32-27" aria-hidden="true" tabindex="-1"></a><span class="fu"># Tips para generar una función</span></span>
+<span id="cb32-28"><a href="#cb32-28" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb32-29"><a href="#cb32-29" aria-hidden="true" tabindex="-1"></a>![<span class="co">[</span><span class="ot">R- bloggers, Writing functions in R</span><span class="co">](https://www.r-bloggers.com/2022/09/writing-functions-in-r/)</span>](figures/structure_functions.png)</span>
+<span id="cb32-30"><a href="#cb32-30" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb32-31"><a href="#cb32-31" aria-hidden="true" tabindex="-1"></a>En resumen, la estructura básica de una función en R es la siguiente:</span>
+<span id="cb32-32"><a href="#cb32-32" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb32-33"><a href="#cb32-33" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>**Nombre de la función:** es cómo la identificamos y la llamamos después</span>
+<span id="cb32-34"><a href="#cb32-34" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>**Argumentos (inputs):** los valores que recibe la función</span>
+<span id="cb32-35"><a href="#cb32-35" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>**Cuerpo de la función:** donde se realizan las operaciones</span>
+<span id="cb32-36"><a href="#cb32-36" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>**Valor que devuelve (output):** el resultado que la función devuelve</span>
+<span id="cb32-37"><a href="#cb32-37" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb32-38"><a href="#cb32-38" aria-hidden="true" tabindex="-1"></a>En conjunto, estos elementos nos permiten construir funciones claras y reutilizables.</span>
+<span id="cb32-39"><a href="#cb32-39" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb32-40"><a href="#cb32-40" aria-hidden="true" tabindex="-1"></a>**Buenas prácticas al crear funciones**</span>
+<span id="cb32-41"><a href="#cb32-41" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb32-42"><a href="#cb32-42" aria-hidden="true" tabindex="-1"></a>Al escribir funciones, es recomendable:</span>
+<span id="cb32-43"><a href="#cb32-43" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb32-44"><a href="#cb32-44" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>usar **nombres descriptivos** tanto para la función como para sus argumentos</span>
+<span id="cb32-45"><a href="#cb32-45" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>mantener las funciones **simples y enfocadas** (una función = una tarea)</span>
+<span id="cb32-46"><a href="#cb32-46" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>incluir explícitamente el <span class="in">`return()`</span> para mayor claridad</span>
+<span id="cb32-47"><a href="#cb32-47" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>agregar **validaciones** o **mensajes** cuando sea necesario</span>
+<span id="cb32-48"><a href="#cb32-48" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb32-49"><a href="#cb32-49" aria-hidden="true" tabindex="-1"></a>::: callout-important</span>
+<span id="cb32-50"><a href="#cb32-50" aria-hidden="true" tabindex="-1"></a>Una buena función no solo funciona, también es fácil de leer, entender y reutilizar.</span>
+<span id="cb32-51"><a href="#cb32-51" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb32-52"><a href="#cb32-52" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb32-53"><a href="#cb32-53" aria-hidden="true" tabindex="-1"></a><span class="fu"># Nuestro primer código</span></span>
+<span id="cb32-54"><a href="#cb32-54" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb32-55"><a href="#cb32-55" aria-hidden="true" tabindex="-1"></a><span class="at">&gt; **Problema:** Realizar un algoritmo que solicite al usuario *dos numeros enteros*, realice su suma y la imprima en pantalla.</span></span>
+<span id="cb32-56"><a href="#cb32-56" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb32-57"><a href="#cb32-57" aria-hidden="true" tabindex="-1"></a><span class="in">```{r Primer codigo, eval=FALSE}</span></span>
+<span id="cb32-58"><a href="#cb32-58" aria-hidden="true" tabindex="-1"></a><span class="co"># ---Algoritmo(Sumar)---</span></span>
+<span id="cb32-59"><a href="#cb32-59" aria-hidden="true" tabindex="-1"></a><span class="co"># 1) Solicitar al usuario los datos de entrada (variable a y b).</span></span>
+<span id="cb32-60"><a href="#cb32-60" aria-hidden="true" tabindex="-1"></a><span class="co"># --INICIO--</span></span>
+<span id="cb32-61"><a href="#cb32-61" aria-hidden="true" tabindex="-1"></a>a <span class="ot">&lt;-</span> <span class="fu">readline</span>(<span class="st">"Digite el primer numero: "</span>)</span>
+<span id="cb32-62"><a href="#cb32-62" aria-hidden="true" tabindex="-1"></a>b <span class="ot">&lt;-</span> <span class="fu">readline</span>(<span class="st">"Digite el segundo numero: "</span>)</span>
+<span id="cb32-63"><a href="#cb32-63" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb32-64"><a href="#cb32-64" aria-hidden="true" tabindex="-1"></a><span class="co"># Convertir la entrada en números enteros</span></span>
+<span id="cb32-65"><a href="#cb32-65" aria-hidden="true" tabindex="-1"></a>a <span class="ot">&lt;-</span> <span class="fu">as.integer</span>(a)</span>
+<span id="cb32-66"><a href="#cb32-66" aria-hidden="true" tabindex="-1"></a>b <span class="ot">&lt;-</span> <span class="fu">as.integer</span>(b)</span>
+<span id="cb32-67"><a href="#cb32-67" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb32-68"><a href="#cb32-68" aria-hidden="true" tabindex="-1"></a><span class="co"># 2) Realizar la suma de los datos de entrada.</span></span>
+<span id="cb32-69"><a href="#cb32-69" aria-hidden="true" tabindex="-1"></a>c <span class="ot">&lt;-</span> a <span class="sc">+</span> b </span>
+<span id="cb32-70"><a href="#cb32-70" aria-hidden="true" tabindex="-1"></a> </span>
+<span id="cb32-71"><a href="#cb32-71" aria-hidden="true" tabindex="-1"></a><span class="co"># 3) Mostrar el resultado.</span></span>
+<span id="cb32-72"><a href="#cb32-72" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(c)</span>
+<span id="cb32-73"><a href="#cb32-73" aria-hidden="true" tabindex="-1"></a><span class="co"># --FIN_INICIO--</span></span>
+<span id="cb32-74"><a href="#cb32-74" aria-hidden="true" tabindex="-1"></a><span class="co"># --- Fin_de_Algoritmo(Sumar) ---</span></span>
+<span id="cb32-75"><a href="#cb32-75" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb32-76"><a href="#cb32-76" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb32-77"><a href="#cb32-77" aria-hidden="true" tabindex="-1"></a>**¿Cuál es el problema de este enfoque?**</span>
+<span id="cb32-78"><a href="#cb32-78" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb32-79"><a href="#cb32-79" aria-hidden="true" tabindex="-1"></a>Este código funciona correctamente, pero tiene una **desventaja** importante:</span>
+<span id="cb32-80"><a href="#cb32-80" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb32-81"><a href="#cb32-81" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>Cada vez que queramos realizar una suma, debemos volver a escribir todo el procedimiento</span>
+<span id="cb32-82"><a href="#cb32-82" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>El código puede volverse repetitivo y difícil de mantener</span>
+<span id="cb32-83"><a href="#cb32-83" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>No es fácil reutilizarlo en otros programas</span>
+<span id="cb32-84"><a href="#cb32-84" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb32-85"><a href="#cb32-85" aria-hidden="true" tabindex="-1"></a>💡 **Motivación**</span>
+<span id="cb32-86"><a href="#cb32-86" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb32-87"><a href="#cb32-87" aria-hidden="true" tabindex="-1"></a>Aquí es donde entran las funciones.</span>
+<span id="cb32-88"><a href="#cb32-88" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb32-89"><a href="#cb32-89" aria-hidden="true" tabindex="-1"></a>Una función nos permite **encapsular este proceso** en un solo bloque de código que podemos reutilizar tantas veces como queramos.</span>
+<span id="cb32-90"><a href="#cb32-90" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb32-91"><a href="#cb32-91" aria-hidden="true" tabindex="-1"></a>::: callout-tip</span>
+<span id="cb32-92"><a href="#cb32-92" aria-hidden="true" tabindex="-1"></a>En lugar de repetir el mismo algoritmo, podemos nombrarlo y usarlo cuando lo necesitemos.</span>
+<span id="cb32-93"><a href="#cb32-93" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb32-94"><a href="#cb32-94" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb32-95"><a href="#cb32-95" aria-hidden="true" tabindex="-1"></a><span class="fu"># Nuestra primera función</span></span>
+<span id="cb32-96"><a href="#cb32-96" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb32-97"><a href="#cb32-97" aria-hidden="true" tabindex="-1"></a><span class="at">&gt; **Problema:** Crear una función que reciba *dos numeros enteros* y realice su suma.</span></span>
+<span id="cb32-98"><a href="#cb32-98" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb32-99"><a href="#cb32-99" aria-hidden="true" tabindex="-1"></a><span class="in">```{r Funcion - my_sum v1}</span></span>
+<span id="cb32-100"><a href="#cb32-100" aria-hidden="true" tabindex="-1"></a>my_sum <span class="ot">&lt;-</span> <span class="cf">function</span>(a, b) {</span>
+<span id="cb32-101"><a href="#cb32-101" aria-hidden="true" tabindex="-1"></a>  c <span class="ot">&lt;-</span> a <span class="sc">+</span> b</span>
+<span id="cb32-102"><a href="#cb32-102" aria-hidden="true" tabindex="-1"></a>  <span class="fu">return</span>(c)</span>
+<span id="cb32-103"><a href="#cb32-103" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb32-104"><a href="#cb32-104" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb32-105"><a href="#cb32-105" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb32-106"><a href="#cb32-106" aria-hidden="true" tabindex="-1"></a>**Desglose de la función:**</span>
+<span id="cb32-107"><a href="#cb32-107" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb32-108"><a href="#cb32-108" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span><span class="in">`my_sum`</span>: es el **nombre** de la función que creamos.</span>
+<span id="cb32-109"><a href="#cb32-109" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span><span class="in">`a,b`</span>: son los **argumentos** de la función.</span>
+<span id="cb32-110"><a href="#cb32-110" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span><span class="in">`c &lt;- a + b`</span>: es la **operación** que realiza la función.</span>
+<span id="cb32-111"><a href="#cb32-111" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span><span class="in">`return(c)`</span>: devuelve el **resultado** de la función.</span>
+<span id="cb32-112"><a href="#cb32-112" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb32-113"><a href="#cb32-113" aria-hidden="true" tabindex="-1"></a>:::: callout-important</span>
+<span id="cb32-114"><a href="#cb32-114" aria-hidden="true" tabindex="-1"></a>¿Qué nos falta en la función?</span>
+<span id="cb32-115"><a href="#cb32-115" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb32-116"><a href="#cb32-116" aria-hidden="true" tabindex="-1"></a>::: {.callout-tip collapse="true" icon="false"}</span>
+<span id="cb32-117"><a href="#cb32-117" aria-hidden="true" tabindex="-1"></a><span class="fu">## Respuesta</span></span>
+<span id="cb32-118"><a href="#cb32-118" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb32-119"><a href="#cb32-119" aria-hidden="true" tabindex="-1"></a>No estamos verificando que los valores de entrada sean números enteros.</span>
+<span id="cb32-120"><a href="#cb32-120" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb32-121"><a href="#cb32-121" aria-hidden="true" tabindex="-1"></a>Actualmente, la función acepta cualquier tipo de dato que pueda sumarse, lo cual puede provocar resultados inesperados.</span>
+<span id="cb32-122"><a href="#cb32-122" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb32-123"><a href="#cb32-123" aria-hidden="true" tabindex="-1"></a>💡 Una buena práctica es validar los datos de entrada para asegurarnos de que la función se use correctamente.</span>
+<span id="cb32-124"><a href="#cb32-124" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb32-125"><a href="#cb32-125" aria-hidden="true" tabindex="-1"></a>::::</span>
+<span id="cb32-126"><a href="#cb32-126" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb32-127"><a href="#cb32-127" aria-hidden="true" tabindex="-1"></a>:::: {.callout-note icon="false"}</span>
+<span id="cb32-128"><a href="#cb32-128" aria-hidden="true" tabindex="-1"></a><span class="fu">## 💻Ejercicio: Nuestra segunda función</span></span>
+<span id="cb32-129"><a href="#cb32-129" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb32-130"><a href="#cb32-130" aria-hidden="true" tabindex="-1"></a>Define una función que:</span>
+<span id="cb32-131"><a href="#cb32-131" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb32-132"><a href="#cb32-132" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>reciba dos números enteros como argumentos</span>
+<span id="cb32-133"><a href="#cb32-133" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>calcule su suma</span>
+<span id="cb32-134"><a href="#cb32-134" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>devuelva el resultado</span>
+<span id="cb32-135"><a href="#cb32-135" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb32-136"><a href="#cb32-136" aria-hidden="true" tabindex="-1"></a>Asegúrate de que la función funcione correctamente para distintos valores de entrada.</span>
+<span id="cb32-137"><a href="#cb32-137" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb32-138"><a href="#cb32-138" aria-hidden="true" tabindex="-1"></a>::: {.callout-tip collapse="true" icon="false"}</span>
+<span id="cb32-139"><a href="#cb32-139" aria-hidden="true" tabindex="-1"></a><span class="fu">## Solución</span></span>
+<span id="cb32-140"><a href="#cb32-140" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb32-141"><a href="#cb32-141" aria-hidden="true" tabindex="-1"></a><span class="in">```{r Funcion - my_sum v2}</span></span>
+<span id="cb32-142"><a href="#cb32-142" aria-hidden="true" tabindex="-1"></a>my_sum <span class="ot">&lt;-</span> <span class="cf">function</span>(a, b) {</span>
+<span id="cb32-143"><a href="#cb32-143" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb32-144"><a href="#cb32-144" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Convertir la entrada en números enteros</span></span>
+<span id="cb32-145"><a href="#cb32-145" aria-hidden="true" tabindex="-1"></a>  a <span class="ot">&lt;-</span> <span class="fu">as.integer</span>(a)</span>
+<span id="cb32-146"><a href="#cb32-146" aria-hidden="true" tabindex="-1"></a>  b <span class="ot">&lt;-</span> <span class="fu">as.integer</span>(b)</span>
+<span id="cb32-147"><a href="#cb32-147" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb32-148"><a href="#cb32-148" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Realizar la suma</span></span>
+<span id="cb32-149"><a href="#cb32-149" aria-hidden="true" tabindex="-1"></a>  c <span class="ot">&lt;-</span> a <span class="sc">+</span> b</span>
+<span id="cb32-150"><a href="#cb32-150" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb32-151"><a href="#cb32-151" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Devolver el resultado</span></span>
+<span id="cb32-152"><a href="#cb32-152" aria-hidden="true" tabindex="-1"></a>  <span class="fu">return</span>(c)</span>
+<span id="cb32-153"><a href="#cb32-153" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb32-154"><a href="#cb32-154" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb32-155"><a href="#cb32-155" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb32-156"><a href="#cb32-156" aria-hidden="true" tabindex="-1"></a>En esta versión estamos forzando que los datos sean enteros usando <span class="in">`as.integer()`</span>.</span>
+<span id="cb32-157"><a href="#cb32-157" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb32-158"><a href="#cb32-158" aria-hidden="true" tabindex="-1"></a>💡 Esto <span class="co">[</span><span class="ot">NO</span><span class="co">]</span>{style="color: red;"} valida los datos, solo los convierte. Por ejemplo, <span class="in">`3`</span> se convierte correctamente, pero <span class="in">`hola`</span> se convierte en <span class="in">`NA`</span>.</span>
+<span id="cb32-159"><a href="#cb32-159" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb32-160"><a href="#cb32-160" aria-hidden="true" tabindex="-1"></a>Una mejora adicional sería validar los datos de entrada antes de realizar la operación. Esto lo veremos más adelante.</span>
+<span id="cb32-161"><a href="#cb32-161" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb32-162"><a href="#cb32-162" aria-hidden="true" tabindex="-1"></a>::::</span>
+<span id="cb32-163"><a href="#cb32-163" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb32-164"><a href="#cb32-164" aria-hidden="true" tabindex="-1"></a><span class="fu">## Verificación / Realizar pruebas</span></span>
+<span id="cb32-165"><a href="#cb32-165" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb32-166"><a href="#cb32-166" aria-hidden="true" tabindex="-1"></a>Una vez definida la función, es importante probarla para asegurarnos de que funciona como esperamos.</span>
+<span id="cb32-167"><a href="#cb32-167" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb32-168"><a href="#cb32-168" aria-hidden="true" tabindex="-1"></a>Antes de ejecutarla, reflexiona:</span>
+<span id="cb32-169"><a href="#cb32-169" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb32-170"><a href="#cb32-170" aria-hidden="true" tabindex="-1"></a><span class="at">&gt; **¿Qué resultado esperas obtener al evaluar `my_sum(3, 4)`?**</span></span>
+<span id="cb32-171"><a href="#cb32-171" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb32-172"><a href="#cb32-172" aria-hidden="true" tabindex="-1"></a><span class="in">```{r Verfiicar my_sum}</span></span>
+<span id="cb32-173"><a href="#cb32-173" aria-hidden="true" tabindex="-1"></a><span class="fu">my_sum</span>(<span class="dv">3</span>,<span class="dv">4</span>)</span>
+<span id="cb32-174"><a href="#cb32-174" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb32-175"><a href="#cb32-175" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb32-176"><a href="#cb32-176" aria-hidden="true" tabindex="-1"></a>💡 Después de ejecutar la función, deberías obtener como resultado: <span class="in">`7`</span></span>
+<span id="cb32-177"><a href="#cb32-177" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb32-178"><a href="#cb32-178" aria-hidden="true" tabindex="-1"></a>::: callout-note</span>
+<span id="cb32-179"><a href="#cb32-179" aria-hidden="true" tabindex="-1"></a>Probar funciones con ejemplos simples nos permite:</span>
+<span id="cb32-180"><a href="#cb32-180" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb32-181"><a href="#cb32-181" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>verificar que el resultado es correcto</span>
+<span id="cb32-182"><a href="#cb32-182" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb32-183"><a href="#cb32-183" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>detectar posibles errores</span>
+<span id="cb32-184"><a href="#cb32-184" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb32-185"><a href="#cb32-185" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>entender mejor cómo funciona la función</span>
+<span id="cb32-186"><a href="#cb32-186" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb32-187"><a href="#cb32-187" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb32-188"><a href="#cb32-188" aria-hidden="true" tabindex="-1"></a>::: callout-caution</span>
+<span id="cb32-189"><a href="#cb32-189" aria-hidden="true" tabindex="-1"></a><span class="fu">## Casos “problemáticos”:</span></span>
+<span id="cb32-190"><a href="#cb32-190" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb32-193"><a href="#cb32-193" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb32-194"><a href="#cb32-194" aria-hidden="true" tabindex="-1"></a><span class="fu">my_sum</span>(<span class="st">"3"</span>, <span class="st">"4"</span>)</span>
+<span id="cb32-195"><a href="#cb32-195" aria-hidden="true" tabindex="-1"></a><span class="fu">my_sum</span>(<span class="st">"hola"</span>, <span class="dv">5</span>)</span>
+<span id="cb32-196"><a href="#cb32-196" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb32-197"><a href="#cb32-197" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb32-198"><a href="#cb32-198" aria-hidden="true" tabindex="-1"></a>**Caso 1:** <span class="in">`my_sum("3", "4")`</span></span>
+<span id="cb32-199"><a href="#cb32-199" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb32-200"><a href="#cb32-200" aria-hidden="true" tabindex="-1"></a>Aunque "3" y "4" son texto, la función los convierte con <span class="in">`as.integer()`</span>. El resultado es: 7</span>
+<span id="cb32-201"><a href="#cb32-201" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb32-202"><a href="#cb32-202" aria-hidden="true" tabindex="-1"></a>✔️ En este caso, la función funciona porque los valores sí pueden convertirse a números</span>
+<span id="cb32-203"><a href="#cb32-203" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb32-204"><a href="#cb32-204" aria-hidden="true" tabindex="-1"></a>**Caso 2:** <span class="in">`my_sum("hola", 5)`</span></span>
+<span id="cb32-205"><a href="#cb32-205" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb32-206"><a href="#cb32-206" aria-hidden="true" tabindex="-1"></a><span class="in">`"hola"`</span> no puede convertirse a un número entero, <span class="in">`as.integer("hola")`</span> produce: <span class="in">`NA`</span></span>
+<span id="cb32-207"><a href="#cb32-207" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb32-208"><a href="#cb32-208" aria-hidden="true" tabindex="-1"></a>Entonces la suma se convierte en: <span class="in">`NA + 5 = NA`</span></span>
+<span id="cb32-209"><a href="#cb32-209" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb32-210"><a href="#cb32-210" aria-hidden="true" tabindex="-1"></a>❌ La función no falla explícitamente, pero produce un resultado incorrecto</span>
+<span id="cb32-211"><a href="#cb32-211" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb32-212"><a href="#cb32-212" aria-hidden="true" tabindex="-1"></a>💡 **Conclusión**</span>
+<span id="cb32-213"><a href="#cb32-213" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb32-214"><a href="#cb32-214" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>Convertir datos (<span class="sc">\`</span>as.integer<span class="sc">\`</span>) no es lo mismo que validarlos</span>
+<span id="cb32-215"><a href="#cb32-215" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>Nuestra función actualmente puede generar resultados inválidos sin avisarnos</span>
+<span id="cb32-216"><a href="#cb32-216" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>Es importante agregar validación de entradas para evitar estos problemas</span>
+<span id="cb32-217"><a href="#cb32-217" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb32-218"><a href="#cb32-218" aria-hidden="true" tabindex="-1"></a>👉 Más adelante, mejoraremos la función para que detecte y maneje este tipo de errores.</span>
+<span id="cb32-219"><a href="#cb32-219" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb32-220"><a href="#cb32-220" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb32-221"><a href="#cb32-221" aria-hidden="true" tabindex="-1"></a><span class="fu"># Conversiones de temperatura</span></span>
+<span id="cb32-222"><a href="#cb32-222" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb32-223"><a href="#cb32-223" aria-hidden="true" tabindex="-1"></a><span class="al">![Fórmulas de Temperatura](figures/Formulas_Temperatura.png)</span></span>
+<span id="cb32-224"><a href="#cb32-224" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb32-225"><a href="#cb32-225" aria-hidden="true" tabindex="-1"></a>Hasta ahora hemos trabajado con una función muy simple (una suma). Ahora veremos un ejemplo más interesante: convertir unidades de temperatura.</span>
+<span id="cb32-226"><a href="#cb32-226" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb32-227"><a href="#cb32-227" aria-hidden="true" tabindex="-1"></a><span class="fu">## Conversión de Fahrenheit a Kelvin</span></span>
+<span id="cb32-228"><a href="#cb32-228" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb32-229"><a href="#cb32-229" aria-hidden="true" tabindex="-1"></a>Vamos a crear una función que convierta una temperatura dada en grados Fahrenheit a Kelvin.</span>
+<span id="cb32-230"><a href="#cb32-230" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb32-231"><a href="#cb32-231" aria-hidden="true" tabindex="-1"></a><span class="in">```{r Funcion - fahr_to_kelvin}</span></span>
+<span id="cb32-232"><a href="#cb32-232" aria-hidden="true" tabindex="-1"></a>fahr_to_kelvin <span class="ot">&lt;-</span> <span class="cf">function</span>(temp) {</span>
+<span id="cb32-233"><a href="#cb32-233" aria-hidden="true" tabindex="-1"></a>  kelvin <span class="ot">&lt;-</span> ((temp <span class="sc">-</span> <span class="dv">32</span>) <span class="sc">*</span> (<span class="dv">5</span> <span class="sc">/</span> <span class="dv">9</span>)) <span class="sc">+</span> <span class="fl">273.15</span></span>
+<span id="cb32-234"><a href="#cb32-234" aria-hidden="true" tabindex="-1"></a>  <span class="fu">return</span>(kelvin)</span>
+<span id="cb32-235"><a href="#cb32-235" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb32-236"><a href="#cb32-236" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb32-237"><a href="#cb32-237" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb32-238"><a href="#cb32-238" aria-hidden="true" tabindex="-1"></a>💡 En este caso:</span>
+<span id="cb32-239"><a href="#cb32-239" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb32-240"><a href="#cb32-240" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span><span class="in">`temp`</span> es el valor de entrada (en Fahrenheit)</span>
+<span id="cb32-241"><a href="#cb32-241" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>aplicamos una fórmula matemática</span>
+<span id="cb32-242"><a href="#cb32-242" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>devolvemos el resultado en Kelvin</span>
+<span id="cb32-243"><a href="#cb32-243" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb32-244"><a href="#cb32-244" aria-hidden="true" tabindex="-1"></a><span class="co">[</span><span class="ot">Sofware Carpentry, Funciones</span><span class="co">](https://swcarpentry.github.io/r-novice-gapminder-es/10-functions.html)</span></span>
+<span id="cb32-245"><a href="#cb32-245" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb32-246"><a href="#cb32-246" aria-hidden="true" tabindex="-1"></a><span class="fu">## Verificación / Realizar pruebas</span></span>
+<span id="cb32-247"><a href="#cb32-247" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb32-248"><a href="#cb32-248" aria-hidden="true" tabindex="-1"></a>Probemos la función con valores conocidos:</span>
+<span id="cb32-249"><a href="#cb32-249" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb32-250"><a href="#cb32-250" aria-hidden="true" tabindex="-1"></a><span class="in">```{r Verfiicar fahr_to_kelvin}</span></span>
+<span id="cb32-251"><a href="#cb32-251" aria-hidden="true" tabindex="-1"></a><span class="fu">fahr_to_kelvin</span>(<span class="dv">32</span>) <span class="co"># Punto de congelación del agua</span></span>
+<span id="cb32-252"><a href="#cb32-252" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb32-253"><a href="#cb32-253" aria-hidden="true" tabindex="-1"></a><span class="fu">fahr_to_kelvin</span>(<span class="dv">212</span>) <span class="co"># Punto de ebullición del agua</span></span>
+<span id="cb32-254"><a href="#cb32-254" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb32-255"><a href="#cb32-255" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb32-256"><a href="#cb32-256" aria-hidden="true" tabindex="-1"></a>💡 Interpretación de los resultados</span>
+<span id="cb32-257"><a href="#cb32-257" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb32-258"><a href="#cb32-258" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>32°F ≈ 273.15 K → temperatura de congelación del agua</span>
+<span id="cb32-259"><a href="#cb32-259" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>212°F ≈ 373.15 K → temperatura de ebullición del agua</span>
+<span id="cb32-260"><a href="#cb32-260" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb32-261"><a href="#cb32-261" aria-hidden="true" tabindex="-1"></a>✔️ Esto nos permite verificar que la función está implementada correctamente.</span>
+<span id="cb32-262"><a href="#cb32-262" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb32-263"><a href="#cb32-263" aria-hidden="true" tabindex="-1"></a>::: {.callout-warning icon="false"}</span>
+<span id="cb32-264"><a href="#cb32-264" aria-hidden="true" tabindex="-1"></a><span class="fu">## Remark</span></span>
+<span id="cb32-265"><a href="#cb32-265" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb32-266"><a href="#cb32-266" aria-hidden="true" tabindex="-1"></a>A diferencia de <span class="in">`my_sum`</span>, esta función:</span>
+<span id="cb32-267"><a href="#cb32-267" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb32-268"><a href="#cb32-268" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>realiza una operación más compleja</span>
+<span id="cb32-269"><a href="#cb32-269" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>tiene un significado físico</span>
+<span id="cb32-270"><a href="#cb32-270" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>muestra cómo las funciones pueden representar modelos o fórmulas reales</span>
+<span id="cb32-271"><a href="#cb32-271" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb32-272"><a href="#cb32-272" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb32-273"><a href="#cb32-273" aria-hidden="true" tabindex="-1"></a>:::: {.callout-note icon="false"}</span>
+<span id="cb32-274"><a href="#cb32-274" aria-hidden="true" tabindex="-1"></a><span class="fu">## 💻Ejercicio: Conversión de Kelvin a Celsius</span></span>
+<span id="cb32-275"><a href="#cb32-275" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb32-276"><a href="#cb32-276" aria-hidden="true" tabindex="-1"></a>Define una función que:</span>
+<span id="cb32-277"><a href="#cb32-277" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb32-278"><a href="#cb32-278" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>reciba una temperatura en Kelvin</span>
+<span id="cb32-279"><a href="#cb32-279" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>la convierta a grados Celsius</span>
+<span id="cb32-280"><a href="#cb32-280" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>devuelva el resultado</span>
+<span id="cb32-281"><a href="#cb32-281" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb32-282"><a href="#cb32-282" aria-hidden="true" tabindex="-1"></a>Además, prueba tu función con algunos valores.</span>
+<span id="cb32-283"><a href="#cb32-283" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb32-284"><a href="#cb32-284" aria-hidden="true" tabindex="-1"></a><span class="co">[</span><span class="ot">Sofware Carpentry, Funciones</span><span class="co">](https://swcarpentry.github.io/r-novice-gapminder-es/10-functions.html)</span></span>
+<span id="cb32-285"><a href="#cb32-285" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb32-286"><a href="#cb32-286" aria-hidden="true" tabindex="-1"></a>::: {.callout-tip collapse="true" icon="false"}</span>
+<span id="cb32-287"><a href="#cb32-287" aria-hidden="true" tabindex="-1"></a><span class="fu">## Solución</span></span>
+<span id="cb32-288"><a href="#cb32-288" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb32-289"><a href="#cb32-289" aria-hidden="true" tabindex="-1"></a><span class="in">```{r Funcion - kelvin_to_celsius}</span></span>
+<span id="cb32-290"><a href="#cb32-290" aria-hidden="true" tabindex="-1"></a>kelvin_to_celsius <span class="ot">&lt;-</span> <span class="cf">function</span>(temp) {</span>
+<span id="cb32-291"><a href="#cb32-291" aria-hidden="true" tabindex="-1"></a>  celsius <span class="ot">&lt;-</span> temp <span class="sc">-</span> <span class="fl">273.15</span></span>
+<span id="cb32-292"><a href="#cb32-292" aria-hidden="true" tabindex="-1"></a>  <span class="fu">return</span>(celsius)</span>
+<span id="cb32-293"><a href="#cb32-293" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb32-294"><a href="#cb32-294" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb32-295"><a href="#cb32-295" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb32-296"><a href="#cb32-296" aria-hidden="true" tabindex="-1"></a>**Verificación**</span>
+<span id="cb32-297"><a href="#cb32-297" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb32-298"><a href="#cb32-298" aria-hidden="true" tabindex="-1"></a><span class="in">```{r Verfiicar kelvin_to_celsius}</span></span>
+<span id="cb32-299"><a href="#cb32-299" aria-hidden="true" tabindex="-1"></a><span class="fu">kelvin_to_celsius</span>(<span class="dv">300</span>) </span>
+<span id="cb32-300"><a href="#cb32-300" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb32-301"><a href="#cb32-301" aria-hidden="true" tabindex="-1"></a><span class="fu">kelvin_to_celsius</span>(<span class="dv">400</span>) </span>
+<span id="cb32-302"><a href="#cb32-302" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb32-303"><a href="#cb32-303" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb32-304"><a href="#cb32-304" aria-hidden="true" tabindex="-1"></a>::::</span>
+<span id="cb32-305"><a href="#cb32-305" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb32-306"><a href="#cb32-306" aria-hidden="true" tabindex="-1"></a><span class="fu"># Combinando funciones</span></span>
+<span id="cb32-307"><a href="#cb32-307" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb32-308"><a href="#cb32-308" aria-hidden="true" tabindex="-1"></a>El verdadero poder de las funciones aparece cuando las combinamos para construir soluciones más complejas.</span>
+<span id="cb32-309"><a href="#cb32-309" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb32-310"><a href="#cb32-310" aria-hidden="true" tabindex="-1"></a>En lugar de escribir todo desde cero, podemos reutilizar funciones ya definidas.</span>
+<span id="cb32-311"><a href="#cb32-311" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb32-312"><a href="#cb32-312" aria-hidden="true" tabindex="-1"></a>Considera las siguientes funciones:</span>
+<span id="cb32-313"><a href="#cb32-313" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb32-316"><a href="#cb32-316" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb32-317"><a href="#cb32-317" aria-hidden="true" tabindex="-1"></a>fahr_to_kelvin <span class="ot">&lt;-</span> <span class="cf">function</span>(temp) {</span>
+<span id="cb32-318"><a href="#cb32-318" aria-hidden="true" tabindex="-1"></a>  kelvin <span class="ot">&lt;-</span> ((temp <span class="sc">-</span> <span class="dv">32</span>) <span class="sc">*</span> (<span class="dv">5</span> <span class="sc">/</span> <span class="dv">9</span>)) <span class="sc">+</span> <span class="fl">273.15</span></span>
+<span id="cb32-319"><a href="#cb32-319" aria-hidden="true" tabindex="-1"></a>  <span class="fu">return</span>(kelvin)</span>
+<span id="cb32-320"><a href="#cb32-320" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb32-321"><a href="#cb32-321" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb32-322"><a href="#cb32-322" aria-hidden="true" tabindex="-1"></a>kelvin_to_celsius <span class="ot">&lt;-</span> <span class="cf">function</span>(temp) {</span>
+<span id="cb32-323"><a href="#cb32-323" aria-hidden="true" tabindex="-1"></a>  celsius <span class="ot">&lt;-</span> temp <span class="sc">-</span> <span class="fl">273.15</span></span>
+<span id="cb32-324"><a href="#cb32-324" aria-hidden="true" tabindex="-1"></a>  <span class="fu">return</span>(celsius)</span>
+<span id="cb32-325"><a href="#cb32-325" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb32-326"><a href="#cb32-326" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb32-327"><a href="#cb32-327" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb32-328"><a href="#cb32-328" aria-hidden="true" tabindex="-1"></a>:::: {.callout-note icon="false"}</span>
+<span id="cb32-329"><a href="#cb32-329" aria-hidden="true" tabindex="-1"></a><span class="fu">## 📝Desafío: Combinando funciones</span></span>
+<span id="cb32-330"><a href="#cb32-330" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb32-331"><a href="#cb32-331" aria-hidden="true" tabindex="-1"></a>Define una función que convierta directamente de Fahrenheit a Celsius, reutilizando las funciones anteriores.</span>
+<span id="cb32-332"><a href="#cb32-332" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb32-333"><a href="#cb32-333" aria-hidden="true" tabindex="-1"></a>💡 Sugerencia: usa la salida de una función como entrada de la otra.</span>
+<span id="cb32-334"><a href="#cb32-334" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb32-335"><a href="#cb32-335" aria-hidden="true" tabindex="-1"></a>::: {.callout-tip collapse="true" icon="false"}</span>
+<span id="cb32-336"><a href="#cb32-336" aria-hidden="true" tabindex="-1"></a><span class="fu">## Solución</span></span>
+<span id="cb32-337"><a href="#cb32-337" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb32-340"><a href="#cb32-340" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb32-341"><a href="#cb32-341" aria-hidden="true" tabindex="-1"></a>fahr_to_celsius <span class="ot">&lt;-</span> <span class="cf">function</span>(temp) {</span>
+<span id="cb32-342"><a href="#cb32-342" aria-hidden="true" tabindex="-1"></a>  temp_k <span class="ot">&lt;-</span> <span class="fu">fahr_to_kelvin</span>(temp)</span>
+<span id="cb32-343"><a href="#cb32-343" aria-hidden="true" tabindex="-1"></a>  result <span class="ot">&lt;-</span> <span class="fu">kelvin_to_celsius</span>(temp_k)</span>
+<span id="cb32-344"><a href="#cb32-344" aria-hidden="true" tabindex="-1"></a>  <span class="fu">return</span>(result)</span>
+<span id="cb32-345"><a href="#cb32-345" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb32-346"><a href="#cb32-346" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb32-347"><a href="#cb32-347" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb32-348"><a href="#cb32-348" aria-hidden="true" tabindex="-1"></a>**Verificación**</span>
+<span id="cb32-349"><a href="#cb32-349" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb32-352"><a href="#cb32-352" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb32-353"><a href="#cb32-353" aria-hidden="true" tabindex="-1"></a><span class="fu">fahr_to_celsius</span>(<span class="dv">68</span>)</span>
+<span id="cb32-354"><a href="#cb32-354" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb32-355"><a href="#cb32-355" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb32-356"><a href="#cb32-356" aria-hidden="true" tabindex="-1"></a>::::</span>
+<span id="cb32-357"><a href="#cb32-357" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb32-358"><a href="#cb32-358" aria-hidden="true" tabindex="-1"></a><span class="fu"># Estructuras de control</span></span>
+<span id="cb32-359"><a href="#cb32-359" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb32-360"><a href="#cb32-360" aria-hidden="true" tabindex="-1"></a>Las estructuras de control nos permiten definir cómo y cuándo se ejecuta nuestro código.</span>
+<span id="cb32-361"><a href="#cb32-361" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb32-362"><a href="#cb32-362" aria-hidden="true" tabindex="-1"></a>Gracias a ellas, podemos tomar decisiones dentro de un programa, por ejemplo:</span>
+<span id="cb32-363"><a href="#cb32-363" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb32-364"><a href="#cb32-364" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>ejecutar una acción solo si se cumple una condición</span>
+<span id="cb32-365"><a href="#cb32-365" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>repetir una operación varias veces</span>
+<span id="cb32-366"><a href="#cb32-366" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>controlar el flujo de ejecución</span>
+<span id="cb32-367"><a href="#cb32-367" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb32-368"><a href="#cb32-368" aria-hidden="true" tabindex="-1"></a>Esto es fundamental para construir programas más complejos y, en particular, para definir funciones más robustas y flexibles.</span>
+<span id="cb32-369"><a href="#cb32-369" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb32-370"><a href="#cb32-370" aria-hidden="true" tabindex="-1"></a>::: callout-important</span>
+<span id="cb32-371"><a href="#cb32-371" aria-hidden="true" tabindex="-1"></a>Sin estructuras de control, nuestros programas serían siempre lineales y poco dinámicos.</span>
+<span id="cb32-372"><a href="#cb32-372" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb32-373"><a href="#cb32-373" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb32-374"><a href="#cb32-374" aria-hidden="true" tabindex="-1"></a><span class="co">[</span><span class="ot">R para principiantes, cap 9</span><span class="co">](https://bookdown.org/jboscomendoza/r-principiantes4/estructuras-de-control.html)</span></span>
+<span id="cb32-375"><a href="#cb32-375" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb32-376"><a href="#cb32-376" aria-hidden="true" tabindex="-1"></a><span class="fu">## Las estructuras de control más usadas</span></span>
+<span id="cb32-377"><a href="#cb32-377" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb32-378"><a href="#cb32-378" aria-hidden="true" tabindex="-1"></a>| Estructura de control | Descripción |</span>
+<span id="cb32-379"><a href="#cb32-379" aria-hidden="true" tabindex="-1"></a>|------------------------------------|------------------------------------|</span>
+<span id="cb32-380"><a href="#cb32-380" aria-hidden="true" tabindex="-1"></a>| <span class="in">`if, else`</span> | Si, de otro modo: Ejecuta código según una condición. |</span>
+<span id="cb32-381"><a href="#cb32-381" aria-hidden="true" tabindex="-1"></a>| <span class="in">`for`</span> | Para cada uno en: Repite una acción un número de veces. |</span>
+<span id="cb32-382"><a href="#cb32-382" aria-hidden="true" tabindex="-1"></a>| <span class="in">`while`</span> | Mientras: Repite mientras se cumpla una condición. |</span>
+<span id="cb32-383"><a href="#cb32-383" aria-hidden="true" tabindex="-1"></a>| <span class="in">`break`</span> | Interrupción: Interrumpe un ciclo. |</span>
+<span id="cb32-384"><a href="#cb32-384" aria-hidden="true" tabindex="-1"></a>| <span class="in">`next`</span> | Siguiente: Salta a la siguiente iteración. |</span>
+<span id="cb32-385"><a href="#cb32-385" aria-hidden="true" tabindex="-1"></a>| <span class="in">`case_when`</span> | Condicional con diversas salidas: Evalúa múltiples condiciones. |</span>
+<span id="cb32-386"><a href="#cb32-386" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb32-387"><a href="#cb32-387" aria-hidden="true" tabindex="-1"></a>Las estructuras de control nos permiten:</span>
+<span id="cb32-388"><a href="#cb32-388" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb32-389"><a href="#cb32-389" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>validar datos de entrada</span>
+<span id="cb32-390"><a href="#cb32-390" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>manejar diferentes casos dentro de una función</span>
+<span id="cb32-391"><a href="#cb32-391" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>automatizar tareas repetitivas</span>
+<span id="cb32-392"><a href="#cb32-392" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb32-393"><a href="#cb32-393" aria-hidden="true" tabindex="-1"></a><span class="fu">## `if, else`</span></span>
+<span id="cb32-394"><a href="#cb32-394" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb32-395"><a href="#cb32-395" aria-hidden="true" tabindex="-1"></a>Las estructuras <span class="in">`if`</span> y <span class="in">`else`</span> nos permiten tomar decisiones dentro de nuestro código.</span>
+<span id="cb32-396"><a href="#cb32-396" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb32-397"><a href="#cb32-397" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span><span class="in">`if`</span> (si): ejecuta un bloque de código solo si se cumple una condición</span>
+<span id="cb32-398"><a href="#cb32-398" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span><span class="in">`else`</span> (de otro modo): define qué hacer cuando la condición no se cumple</span>
+<span id="cb32-399"><a href="#cb32-399" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb32-400"><a href="#cb32-400" aria-hidden="true" tabindex="-1"></a>💡 En otras palabras, permiten que nuestro programa siga distintos caminos según la información que recibe.</span>
+<span id="cb32-401"><a href="#cb32-401" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb32-402"><a href="#cb32-402" aria-hidden="true" tabindex="-1"></a>**Estructura general**</span>
+<span id="cb32-403"><a href="#cb32-403" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb32-404"><a href="#cb32-404" aria-hidden="true" tabindex="-1"></a>Podemos representar su funcionamiento de manera general con el siguiente pseudocódigo:</span>
+<span id="cb32-405"><a href="#cb32-405" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb32-406"><a href="#cb32-406" aria-hidden="true" tabindex="-1"></a><span class="in">```{r pseudocode ifelse v1, eval =FALSE}</span></span>
+<span id="cb32-407"><a href="#cb32-407" aria-hidden="true" tabindex="-1"></a>Inicio</span>
+<span id="cb32-408"><a href="#cb32-408" aria-hidden="true" tabindex="-1"></a>  Recibir datos de entrada</span>
+<span id="cb32-409"><a href="#cb32-409" aria-hidden="true" tabindex="-1"></a>  Evaluar condición</span>
+<span id="cb32-410"><a href="#cb32-410" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb32-411"><a href="#cb32-411" aria-hidden="true" tabindex="-1"></a>  <span class="cf">if</span> (condición es <span class="cn">TRUE</span>) {</span>
+<span id="cb32-412"><a href="#cb32-412" aria-hidden="true" tabindex="-1"></a>    ejecutar acciones si <span class="cn">TRUE</span></span>
+<span id="cb32-413"><a href="#cb32-413" aria-hidden="true" tabindex="-1"></a>  } <span class="cf">else</span> {</span>
+<span id="cb32-414"><a href="#cb32-414" aria-hidden="true" tabindex="-1"></a>    ejecutar acciones si <span class="cn">FALSE</span></span>
+<span id="cb32-415"><a href="#cb32-415" aria-hidden="true" tabindex="-1"></a>  }</span>
+<span id="cb32-416"><a href="#cb32-416" aria-hidden="true" tabindex="-1"></a>Fin</span>
+<span id="cb32-417"><a href="#cb32-417" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb32-418"><a href="#cb32-418" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb32-419"><a href="#cb32-419" aria-hidden="true" tabindex="-1"></a>::: callout-important</span>
+<span id="cb32-420"><a href="#cb32-420" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>Una condición siempre se evalúa como **TRUE** o **FALSE**</span>
+<span id="cb32-421"><a href="#cb32-421" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb32-422"><a href="#cb32-422" aria-hidden="true" tabindex="-1"></a><span class="co">&lt;!-- --&gt;</span></span>
+<span id="cb32-423"><a href="#cb32-423" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb32-424"><a href="#cb32-424" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>A esto lo llamamos una **expresión lógica**</span>
+<span id="cb32-425"><a href="#cb32-425" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb32-426"><a href="#cb32-426" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb32-427"><a href="#cb32-427" aria-hidden="true" tabindex="-1"></a><span class="fu">### `if`</span></span>
+<span id="cb32-428"><a href="#cb32-428" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb32-429"><a href="#cb32-429" aria-hidden="true" tabindex="-1"></a><span class="in">`SI`</span> una condición es verdadera, <span class="in">`ENTONCES`</span> ejecuta ciertas acciones.</span>
+<span id="cb32-430"><a href="#cb32-430" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb32-431"><a href="#cb32-431" aria-hidden="true" tabindex="-1"></a>Podemos pensarlo de forma intuitiva:</span>
+<span id="cb32-432"><a href="#cb32-432" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb32-433"><a href="#cb32-433" aria-hidden="true" tabindex="-1"></a><span class="in">```{r pseudocode ifelse v2, eval=FALSE}</span></span>
+<span id="cb32-434"><a href="#cb32-434" aria-hidden="true" tabindex="-1"></a>IF you are happy</span>
+<span id="cb32-435"><a href="#cb32-435" aria-hidden="true" tabindex="-1"></a>   THEN smile</span>
+<span id="cb32-436"><a href="#cb32-436" aria-hidden="true" tabindex="-1"></a>ENDIF</span>
+<span id="cb32-437"><a href="#cb32-437" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb32-438"><a href="#cb32-438" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb32-439"><a href="#cb32-439" aria-hidden="true" tabindex="-1"></a>**Ejemplo sencillo:**</span>
+<span id="cb32-440"><a href="#cb32-440" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb32-441"><a href="#cb32-441" aria-hidden="true" tabindex="-1"></a><span class="in">```{r ejemplo ifelse}</span></span>
+<span id="cb32-442"><a href="#cb32-442" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span>(<span class="dv">4</span> <span class="sc">&gt;</span> <span class="dv">3</span>) {</span>
+<span id="cb32-443"><a href="#cb32-443" aria-hidden="true" tabindex="-1"></a>  <span class="st">"Verdadero"</span></span>
+<span id="cb32-444"><a href="#cb32-444" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb32-445"><a href="#cb32-445" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb32-446"><a href="#cb32-446" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb32-447"><a href="#cb32-447" aria-hidden="true" tabindex="-1"></a>::: callout-note</span>
+<span id="cb32-448"><a href="#cb32-448" aria-hidden="true" tabindex="-1"></a><span class="fu">## ¿Qué está pasando aquí?</span></span>
+<span id="cb32-449"><a href="#cb32-449" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb32-450"><a href="#cb32-450" aria-hidden="true" tabindex="-1"></a>La condición <span class="in">`4 &gt; 3`</span> es <span class="in">`TRUE`</span>, por lo tanto, R ejecuta el código dentro de las llaves <span class="in">`{}`</span>. El resultado es: <span class="in">`"Verdadero"`</span>.</span>
+<span id="cb32-451"><a href="#cb32-451" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb32-452"><a href="#cb32-452" aria-hidden="true" tabindex="-1"></a>Si la condición fuera falsa, el código dentro del <span class="in">`if`</span> no se ejecuta.</span>
+<span id="cb32-453"><a href="#cb32-453" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb32-454"><a href="#cb32-454" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb32-455"><a href="#cb32-455" aria-hidden="true" tabindex="-1"></a><span class="fu">### `if, else`</span></span>
+<span id="cb32-456"><a href="#cb32-456" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb32-457"><a href="#cb32-457" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span><span class="in">`SI`</span> una condición es verdadera, <span class="in">`ENTONCES`</span> ejecuta ciertas acciones,</span>
+<span id="cb32-458"><a href="#cb32-458" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span><span class="in">`DE OTRO MODO`</span>, ejecuta una alternativa.</span>
+<span id="cb32-459"><a href="#cb32-459" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb32-460"><a href="#cb32-460" aria-hidden="true" tabindex="-1"></a>Podemos pensarlo de forma intuitiva:</span>
+<span id="cb32-461"><a href="#cb32-461" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb32-462"><a href="#cb32-462" aria-hidden="true" tabindex="-1"></a><span class="in">```{r pseudocode ifelse v3, eval=FALSE}</span></span>
+<span id="cb32-463"><a href="#cb32-463" aria-hidden="true" tabindex="-1"></a>SI estás feliz ENTONCES</span>
+<span id="cb32-464"><a href="#cb32-464" aria-hidden="true" tabindex="-1"></a>  sonríe</span>
+<span id="cb32-465"><a href="#cb32-465" aria-hidden="true" tabindex="-1"></a>SINO</span>
+<span id="cb32-466"><a href="#cb32-466" aria-hidden="true" tabindex="-1"></a>  frunce el ceño</span>
+<span id="cb32-467"><a href="#cb32-467" aria-hidden="true" tabindex="-1"></a>FIN</span>
+<span id="cb32-468"><a href="#cb32-468" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb32-469"><a href="#cb32-469" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb32-470"><a href="#cb32-470" aria-hidden="true" tabindex="-1"></a>**Ejemplo sencillo:**</span>
+<span id="cb32-471"><a href="#cb32-471" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb32-474"><a href="#cb32-474" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb32-475"><a href="#cb32-475" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span>(<span class="dv">4</span> <span class="sc">&gt;</span> <span class="dv">3</span>) {</span>
+<span id="cb32-476"><a href="#cb32-476" aria-hidden="true" tabindex="-1"></a>  <span class="st">"Verdadero"</span></span>
+<span id="cb32-477"><a href="#cb32-477" aria-hidden="true" tabindex="-1"></a>} <span class="cf">else</span> {</span>
+<span id="cb32-478"><a href="#cb32-478" aria-hidden="true" tabindex="-1"></a>  <span class="st">"Falso"</span></span>
+<span id="cb32-479"><a href="#cb32-479" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb32-480"><a href="#cb32-480" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb32-481"><a href="#cb32-481" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb32-482"><a href="#cb32-482" aria-hidden="true" tabindex="-1"></a>::: callout-note</span>
+<span id="cb32-483"><a href="#cb32-483" aria-hidden="true" tabindex="-1"></a><span class="fu">## ¿Qué ocurre aquí?</span></span>
+<span id="cb32-484"><a href="#cb32-484" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb32-485"><a href="#cb32-485" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>La condición <span class="in">`4 &gt; 3`</span> es <span class="in">`TRUE`</span></span>
+<span id="cb32-486"><a href="#cb32-486" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb32-487"><a href="#cb32-487" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Por lo tanto, se ejecuta el primer bloque (<span class="in">`"Verdadero"`</span>)</span>
+<span id="cb32-488"><a href="#cb32-488" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb32-489"><a href="#cb32-489" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>El bloque <span class="in">`else`</span> **no se ejecuta**</span>
+<span id="cb32-490"><a href="#cb32-490" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb32-491"><a href="#cb32-491" aria-hidden="true" tabindex="-1"></a>Si la condición fuera falsa, el resultado sería:</span>
+<span id="cb32-492"><a href="#cb32-492" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb32-493"><a href="#cb32-493" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span><span class="in">`"Falso"`</span></span>
+<span id="cb32-494"><a href="#cb32-494" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb32-495"><a href="#cb32-495" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb32-496"><a href="#cb32-496" aria-hidden="true" tabindex="-1"></a><span class="fu">## `for`</span></span>
+</code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div></div></div></div></div>
 </div> <!-- /content -->
 
