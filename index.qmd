@@ -472,15 +472,441 @@ if(4 > 3) {
 ::: callout-note
 ## ¿Qué ocurre aquí?
 
-- La condición `4 > 3` es `TRUE`
+-   La condición `4 > 3` es `TRUE`
 
-- Por lo tanto, se ejecuta el primer bloque (`"Verdadero"`)
+-   Por lo tanto, se ejecuta el primer bloque (`"Verdadero"`)
 
-- El bloque `else` **no se ejecuta**
+-   El bloque `else` **no se ejecuta**
 
 Si la condición fuera falsa, el resultado sería:
 
-- `"Falso"`
+-   `"Falso"`
 :::
 
 ## `for`
+
+El ciclo `for` nos permite repetir una operación varias veces, recorriendo los elementos de un objeto (por ejemplo, un vector).
+
+**Estructura general**:
+
+```{r Estructura For, eval=FALSE}
+for(elemento in objeto) {
+  operacion_con_elemento
+}
+```
+
+💡 Esto se interpreta como:
+
+-   `PARA` cada elemento en un objeto
+-   `HAZ` una operación
+
+**Ejemplo:** cuadrados de un dado 🎲
+
+Vamos a obtener el cuadrado de cada elemento en un vector del 1 al 6, que representa las caras de un dado.
+
+```{r ejemplo dado}
+dado <- 1:6
+
+for(cara in dado) {
+  print(cara ^ 2)
+}
+```
+
+💡 **¿Qué está pasando?**
+
+-   `dado <- 1:6` crea el vector: `1, 2, 3, 4, 5, 6`
+-   `cara` toma cada valor del vector, uno por uno
+-   en cada iteración se calcula `cara^2`
+-   `print()` solo muestra el resultado en consola
+
+::: {.callout-important icon="true"}
+Usar `print()` **no guarda los resultados**, solo los muestra.
+
+Si queremos reutilizar los resultados, debemos almacenarlos.
+:::
+
+**Almacenar resultados con `for`**
+
+```{r ejemplo dado v2}
+dado <- 1:6
+mi_vector <- NULL # vector vacío para almacenar resultados
+
+# Cara es el contador, que agarra CADA valor de dado
+# Empezando con 1 hasta el 6, teniendo 6 iteraciones
+for(cara in dado) {
+  mi_vector[cara] <- cara ^ 2
+}
+
+mi_vector
+```
+
+💡 **Explicación**:
+
+-   `mi_vector <- NULL` inicializa un objeto vacío
+-   `mi_vector[cara] <- cara^2` guarda cada resultado
+-   el índice `cara` indica la posición en el vector
+-   al final obtenemos: `1, 4, 9, 16, 25, 36`
+
+:::: callout-note
+## Ejercicio
+
+Define un vector con los números del 1 al 10 y utiliza un ciclo `for` para:
+
+-   calcular el cubo de cada número
+-   almacenar los resultados en un vector
+-   mostrar el vector final
+
+::: {.callout-tip collapse="true" icon="false"}
+## Solución
+
+```{r}
+numeros <- 1:10
+resultado <- NULL
+
+for (n in numeros) {
+  resultado[n] <- n^3
+}
+
+resultado
+```
+:::
+::::
+
+## `while`
+
+El ciclo `while` permite repetir una operación mientras una condición sea verdadera (`TRUE`).
+
+Es decir, el código se ejecuta una y otra vez hasta que la condición deja de cumplirse.
+
+**Estructura general**
+
+```{r Estructura While, eval=FALSE}
+while(condicion) {
+  operaciones
+}
+```
+
+💡 **Esto se interpreta como:**
+
+-   `MIENTRAS` la condición sea verdadera,
+-   `HAZ` estas operaciones
+
+**Ejemplo:** Vamos a construir un ejemplo donde:
+
+-   generamos números aleatorios del 1 al 10
+-   los vamos sumando a una variable valor
+-   contamos cuántas iteraciones se necesitan para que valor alcance al menos 50
+
+```{r}
+conteo <- 0
+valor <- 0
+
+while (valor < 50) {
+  # Genera un número aleatorio entre 1 y 10
+  valor <- valor + sample(x = 1:10, size = 1)
+  
+  # Contador de iteraciones
+  conteo <- conteo + 1
+}
+
+valor
+conteo
+```
+
+💡 **¿Qué está pasando?**
+
+-   el ciclo se repite mientras `valor < 50`
+-   en cada iteración:
+    -   se suma un número aleatorio a \`valor\`\`
+    -   se incrementa `conteo`
+-   el ciclo termina cuando `valor ≥ 50`
+
+✔️ **Al final obtenemos:**
+
+-   el valor acumulado
+-   el número de iteraciones necesarias
+
+::: {.callout-important icon="false"}
+## ⚠️ Caso importante
+
+Si la condición **no es verdadera desde el inicio**, el ciclo **nunca se ejecuta**:\`
+
+```{r}
+conteo <- 0
+
+while ("dado" == "ficha") {
+  conteo <- conteo + 1
+}
+
+conteo
+```
+
+💡 **Observación**
+
+-   `"dado" == "ficha"` es `FALSE`
+-   por lo tanto, el código dentro del `while` no se ejecuta ni una sola vez
+-   `conteo` permanece en `0`
+:::
+
+::: callout-warning
+Es importante que la condición eventualmente se vuelva `FALSE`, de lo contrario el ciclo puede ejecutarse indefinidamente (*bucle infinito*).
+:::
+
+:::: callout-note
+## Ejercicio
+
+Crea un ciclo `while` que:
+
+-   comience con un valor inicial de `1`
+
+-   lo duplique en cada iteración
+
+-   se detenga cuando el valor sea mayor que `100`
+
+-   cuente cuántas iteraciones se realizaron
+
+::: {.callout-tip collapse="true" icon="false"}
+## Solución
+
+```{r}
+valor <- 1
+conteo <- 0
+
+while (valor <= 100) {
+  valor <- valor * 2
+  conteo <- conteo + 1
+}
+
+valor
+conteo
+```
+:::
+::::
+
+## `break` y `next`
+
+`break` y `next` son palabras reservadas en R, es decir, **no podemos usarlas como nombres de variables** y tienen un comportamiento específico dentro de los bucles.
+
+-   `break`: **interrumpe completamente** el ciclo
+-   `next`: **salta a la siguiente iteración**, ignorando el resto del código en la iteración actual
+
+Ambas funcionan tanto en ciclos `for` como `while`.
+
+### Usando `break`
+
+`break` detiene el ciclo en el momento en que se cumple una condición, aunque aún queden iteraciones pendientes.
+
+```{r}
+for (i in 1:10) {
+  if (i == 3) {
+    break
+  }
+  print(i)
+}
+```
+
+💡 **¿Qué ocurre?**
+
+-   el ciclo inicia en `i = 1`
+-   imprime `1`, luego `2`
+-   cuando `i == 3`, se ejecuta `break`
+-   el ciclo se detiene completamente
+
+✔️ **Resultado:**
+
+-   `1, 2`
+
+### Usando `break` con `while`
+
+```{r}
+numero <- 20
+
+while (numero > 5) {
+  if (numero == 15) {
+    break
+  }
+  numero <- numero - 1
+}
+
+numero
+```
+
+💡 **¿Qué ocurre?**
+
+-   el valor de numero va disminuyendo
+-   cuando llega a `15`, se ejecuta `break`
+-   el ciclo se detiene inmediatamente
+
+✔️ **Resultado final:**
+
+-   `numero = 15`
+
+### Usando `next`
+
+next no detiene el ciclo, solo omite la iteración actual y continúa con la siguiente.
+
+```{r}
+for (i in 1:4) {
+  if (i == 3) {
+    next
+  }
+  print(i)
+}
+```
+
+💡 **¿Qué ocurre?**
+
+-   el ciclo recorre `1, 2, 3, 4`
+-   cuando `i == 3`, se ejecuta `next`
+-   se salta esa iteración (no imprime nada para `3`)
+-   el ciclo continúa normalmente
+
+✔️ **Resultado:**
+
+-   `1, 2, 4`
+
+::: {.callout-important icon="false"}
+## 🧠 Resumen
+
+-   `break` → detiene el ciclo completamente
+
+-   `next` → salta solo una iteración
+:::
+
+:::: callout-note
+## Ejercicio
+
+Crea un ciclo `for` del 1 al 10 que:
+
+-   imprima solo los números **pares**
+
+-   use `next` para omitir los impares
+
+::: {.callout-tip collapse="true" icon="false"}
+## Solución
+
+```{r}
+for (i in 1:10) {
+  if (i %% 2 != 0) {
+    next
+  }
+  print(i)
+}
+```
+:::
+::::
+
+## `case_when()`
+
+La función `case_when()` nos permite evaluar múltiples condiciones de forma clara y ordenada.
+
+Es especialmente útil cuando tenemos varias condiciones encadenadas, en lugar de usar muchos `if, else`.
+
+**Esquema general**
+
+Podemos pensar su funcionamiento de la siguiente manera:
+
+```{r esquema general case, eval=FALSE}
+Entrada: valor
+
+Si condición 1 → resultado 1
+Si condición 2 → resultado 2
+Si condición 3 → resultado 3
+En otro caso → resultado por defecto
+```
+
+💡 Es decir, R evalúa cada condición en orden y devuelve el resultado de la primera que se cumple.
+
+**Ejemplo**
+
+`case_when()` forma parte del paquete `dplyr`.
+
+```{r}
+library(dplyr)
+
+x <- 1:20
+
+case_when(
+  x %% 35 == 0 ~ "fizz buzz",
+  x %% 5 == 0 ~ "fizz",
+  x %% 7 == 0 ~ "buzz",
+  .default = as.character(x)
+)
+```
+
+💡 **¿Qué está pasando?**
+
+-   `x %% 5 == 0` identifica múltiplos de `5`
+-   `x %% 7 == 0` identifica múltiplos de `7`
+-   `x %% 35 == 0` identifica múltiplos de ambos
+
+✔️ **R evalúa en orden:**
+
+-   primero busca múltiplos de 35
+-   luego de 5
+-   luego de 7
+-   si no cumple ninguna entonces usa `.default`
+
+**Ejemplo con data frame**
+
+También es muy útil para crear nuevas variables en un data frame.
+
+El dataset `starwars` proviene del paquete `dplyr`.
+
+```{r}
+starwars %>%
+  select(name:mass, gender, species) %>%
+  mutate(
+    type = case_when(
+      height > 200 | mass > 200 ~ "large",
+      species == "Droid" ~ "robot",
+      .default = "other"
+    )
+  )
+```
+
+💡 **¿Qué hace este código?**
+
+-   crea una nueva columna `type`
+-   clasifica cada observación según condiciones:
+    -   `"large"` si es muy alto o pesado
+    -   `"robot"` si es un droide
+    -   `"other"` en cualquier otro caso
+
+::: {.callout-important icon="false"}
+## 🧠 Resumen
+
+-   `case_when()` permite manejar **múltiples condiciones**
+
+-   es más claro que usar muchos `if, else`
+
+-   es muy útil en **análisis de datos**
+:::
+
+::: callout-note
+## Ejercicio
+
+Crea un vector del 1 al 20 y clasifica cada número como:
+
+- `"par"` si es divisible entre 2
+
+- `"impar"` en otro caso
+
+- Usa `case_when()`.
+
+::: {.callout-tip collapse="true" icon="false"}
+## Solución
+
+```{r}
+x <- 1:20
+
+case_when(
+  x %% 2 == 0 ~ "par",
+  .default = "impar"
+)
+```
+:::
+:::
+
+# Las funciones de la familia `apply`
+
