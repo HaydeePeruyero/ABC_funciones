@@ -883,16 +883,16 @@ starwars %>%
 -   es muy útil en **análisis de datos**
 :::
 
-::: callout-note
+:::: callout-note
 ## Ejercicio
 
 Crea un vector del 1 al 20 y clasifica cada número como:
 
-- `"par"` si es divisible entre 2
+-   `"par"` si es divisible entre 2
 
-- `"impar"` en otro caso
+-   `"impar"` en otro caso
 
-- Usa `case_when()`.
+-   Usa `case_when()`.
 
 ::: {.callout-tip collapse="true" icon="false"}
 ## Solución
@@ -906,7 +906,181 @@ case_when(
 )
 ```
 :::
+::::
+
+# Programación defensiva
+
+Hasta ahora hemos visto que nuestras funciones pueden fallar si reciben datos inesperados.
+
+Por ejemplo, en `my_sum()` vimos que entradas como `"hola"` producen resultados incorrectos (`NA`).
+
+## 💡 ¿Qué es la programación defensiva?
+
+La **programación defensiva** consiste en asegurarnos de que nuestras funciones:
+
+-   solo acepten los datos que esperamos
+
+-   detecten errores en las entradas
+
+-   detengan la ejecución si algo no es válido
+
+::: {.callout-tip icon="false"}
+💡 La idea es: *anticiparnos a los errores antes de que ocurran*.
 :::
 
-# Las funciones de la familia `apply`
+**Funciones útiles en R**
+
+En R podemos usar funciones como:
+
+-   `stop()`: detiene la ejecución y muestra un mensaje de error
+-   `stopifnot()`: detiene la ejecución si una condición no se cumple.(Puedes leer su [manual](https://www.rdocumentation.org/packages/base/versions/3.6.2/topics/stopifnot))
+
+[Software Carpentry, Programación defensiva](https://swcarpentry.github.io/r-novice-gapminder-es/10-functions.html)
+
+## Ejemplo con `stop()` e `if()`
+
+```{r}
+my_sum <- function(a, b) {
+  if (!is.numeric(a) | !is.numeric(b)) {
+    stop("Los argumentos deben ser numéricos")
+  }
+  return(a + b)
+}
+```
+
+💡 **¿Qué hace este código?**
+
+-   verifica si `a` y `b` son numéricos
+-   si no lo son: detiene la función con un mensaje claro
+-   si sí lo son: realiza la suma
+
+**Verificación**
+
+```{r, eval=FALSE}
+my_sum(3, 4)      # Caso correcto
+my_sum("hola", 5) # Caso incorrecto
+```
+
+💡 **¿Qué ocurre?**
+
+-   `my_sum(3, 4)`: devuelve `7` ✔️
+-   `my_sum("hola", 5)`: detiene la ejecución y muestra un error ❌
+
+::: callout-note
+Ahora la función no falla en silencio, sino que avisa claramente el problema.
+:::
+
+## Ejemplo con `stopifnot()`
+
+```{r}
+my_sum <- function(a, b) {
+  stopifnot(is.numeric(a), is.numeric(b))
+  return(a + b)
+}
+```
+
+💡 **Diferencia clave**
+
+-   `stop()`: permite mensajes personalizados
+-   `stopifnot()`: es más compacto, pero menos flexible. Da mensajes más claros del error.
+
+**Verificación:**
+
+```{r, eval=FALSE}
+my_sum(3, 4)      # Caso correcto
+my_sum("hola", 5) # Caso incorrecto
+```
+
+💡 **¿Qué ocurre?**
+
+-   `my_sum(3, 4)`: devuelve `7` ✔️
+-   `my_sum("hola", 5)`: lanza un error automáticamente ❌
+
+:::: callout-note
+## Ejercicio: Validación de entradas con `stop()`
+
+Queremos asegurarnos de que el argumento `temp` sea un valor **numérico**.
+
+Modifica la función `fahr_to_kelvin()` para que:
+
+-   verifique si `temp` es numérico
+
+-   en caso contrario, detenga la ejecución usando `stop()`
+
+-   muestre un mensaje de error claro
+
+💡 *Sugerencia:* utiliza `if()` junto con `is.numeric()`.
+
+::: {.callout-tip collapse="true" icon="false"}
+## Solución
+
+```{r}
+fahr_to_kelvin <- function(temp) {
+  if (!is.numeric(temp)) {
+    stop("temp must be a numeric vector.")
+  }
+  
+  kelvin <- ((temp - 32) * (5 / 9)) + 273.15
+  return(kelvin)
+}
+```
+
+**Verificación:**
+
+```{r, eval=FALSE}
+fahr_to_kelvin(temp = 32)   # Caso correcto
+fahr_to_kelvin(temp = "A")  # Caso incorrecto
+```
+
+💡 **¿Qué observas?**
+
+-   Cuando la entrada es correcta: la función devuelve el resultado ✔️
+-   Cuando la entrada es incorrecta: la función se detiene con un error ❌
+
+👉 Esto evita resultados inválidos y hace el código más seguro.
+:::
+::::
+
+::: callout-note
+## Ejercicio: Validación con `stopifnot()`
+
+Ahora vamos a validar los datos de entrada utilizando `stopifnot()`.
+
+Modifica la función `fahr_to_kelvin()` para que:
+
+- verifique que `temp` sea numérico
+
+- detenga la ejecución automáticamente si la condición no se cumple
+
+💡 *Sugerencia:* usa `is.numeric()` dentro de `stopifnot()`.
+
+::: {.callout-tip collapse="true" icon="false"}
+## Solución
+
+```{r}
+fahr_to_kelvin <- function(temp) {
+  stopifnot(is.numeric(temp))
+  
+  kelvin <- ((temp - 32) * (5 / 9)) + 273.15
+  return(kelvin)
+}
+```
+
+
+**Verificación:**
+
+```{r, eval=FALSE}
+fahr_to_kelvin(temp = 32)  # Caso correcto
+fahr_to_kelvin(temp = as.factor(32))  # Caso incorrecto
+```
+
+💡 **¿Qué observas?**
+
+- Cuando la entrada es válida: la función funciona correctamente ✔️
+- Cuando no lo es: `stopifnot()` detiene la ejecución automáticamente ❌
+
+👉 A diferencia de `stop()`, aquí el mensaje de error es generado por R y no es personalizado.
+:::
+:::
+
 
