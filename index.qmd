@@ -547,8 +547,8 @@ mi_vector
 -   el índice `cara` indica la posición en el vector
 -   al final obtenemos: `1, 4, 9, 16, 25, 36`
 
-:::: callout-note
-## Ejercicio
+:::: {.callout-note icon="false"}
+## 💻Ejercicio
 
 Define un vector con los números del 1 al 10 y utiliza un ciclo `for` para:
 
@@ -652,8 +652,8 @@ conteo
 Es importante que la condición eventualmente se vuelva `FALSE`, de lo contrario el ciclo puede ejecutarse indefinidamente (*bucle infinito*).
 :::
 
-:::: callout-note
-## Ejercicio
+:::: {.callout-note icon="false"}
+## 💻Ejercicio
 
 Crea un ciclo `while` que:
 
@@ -773,8 +773,8 @@ for (i in 1:4) {
 -   `next` → salta solo una iteración
 :::
 
-:::: callout-note
-## Ejercicio
+:::: {.callout-note icon="false"}
+## 💻Ejercicio
 
 Crea un ciclo `for` del 1 al 10 que:
 
@@ -883,8 +883,8 @@ starwars %>%
 -   es muy útil en **análisis de datos**
 :::
 
-:::: callout-note
-## Ejercicio
+:::: {.callout-note icon="false"}
+## 💻Ejercicio
 
 Crea un vector del 1 al 20 y clasifica cada número como:
 
@@ -914,7 +914,7 @@ Hasta ahora hemos visto que nuestras funciones pueden fallar si reciben datos in
 
 Por ejemplo, en `my_sum()` vimos que entradas como `"hola"` producen resultados incorrectos (`NA`).
 
-## 💡 ¿Qué es la programación defensiva?
+## ¿Qué es la programación defensiva?
 
 La **programación defensiva** consiste en asegurarnos de que nuestras funciones:
 
@@ -996,8 +996,8 @@ my_sum("hola", 5) # Caso incorrecto
 -   `my_sum(3, 4)`: devuelve `7` ✔️
 -   `my_sum("hola", 5)`: lanza un error automáticamente ❌
 
-:::: callout-note
-## Ejercicio: Validación de entradas con `stop()`
+:::: {.callout-note icon="false"}
+## 💻Ejercicio: Validación de entradas con `stop()`
 
 Queremos asegurarnos de que el argumento `temp` sea un valor **numérico**.
 
@@ -1041,16 +1041,16 @@ fahr_to_kelvin(temp = "A")  # Caso incorrecto
 :::
 ::::
 
-::: callout-note
-## Ejercicio: Validación con `stopifnot()`
+:::: {.callout-note icon="false"}
+## 💻Ejercicio: Validación con `stopifnot()`
 
 Ahora vamos a validar los datos de entrada utilizando `stopifnot()`.
 
 Modifica la función `fahr_to_kelvin()` para que:
 
-- verifique que `temp` sea numérico
+-   verifique que `temp` sea numérico
 
-- detenga la ejecución automáticamente si la condición no se cumple
+-   detenga la ejecución automáticamente si la condición no se cumple
 
 💡 *Sugerencia:* usa `is.numeric()` dentro de `stopifnot()`.
 
@@ -1066,7 +1066,6 @@ fahr_to_kelvin <- function(temp) {
 }
 ```
 
-
 **Verificación:**
 
 ```{r, eval=FALSE}
@@ -1076,11 +1075,547 @@ fahr_to_kelvin(temp = as.factor(32))  # Caso incorrecto
 
 💡 **¿Qué observas?**
 
-- Cuando la entrada es válida: la función funciona correctamente ✔️
-- Cuando no lo es: `stopifnot()` detiene la ejecución automáticamente ❌
+-   Cuando la entrada es válida: la función funciona correctamente ✔️
+-   Cuando no lo es: `stopifnot()` detiene la ejecución automáticamente ❌
 
 👉 A diferencia de `stop()`, aquí el mensaje de error es generado por R y no es personalizado.
 :::
+::::
+
+## Usando `warning()` y `message()` con `if()`
+
+Hasta ahora hemos visto cómo detener la ejecución con `stop()`.\
+Sin embargo, no siempre queremos detener el programa: a veces solo queremos **avisar** lo que está ocurriendo.
+
+Para eso existen:
+
+-   `warning()` → muestra una **advertencia**, pero el código continúa
+
+-   `message()` → muestra un **mensaje informativo**
+
+Veamos un ejemplo:
+
+```{r}
+squareX <- function(x) {
+  if (is.character(x)) {
+    warning("Converting x to numeric")
+    x <- as.numeric(x)
+  } else {
+    message("x appears to be numeric")
+  }
+  x^2
+}
+```
+
+### 💡 ¿Qué hace esta función?
+
+-   si `x` es texto (`character`):
+    -   muestra una advertencia
+    -   convierte x a número
+-   si `x` ya es numérico:
+    -   muestra un mensaje informativo
+-   finalmente, calcula el cuadrado de `x`
+
+**Verificación/Realizar pruebas**
+
+```{r}
+squareX("4")
+```
+
+```{r}
+squareX(4)
+```
+
+### 💡 ¿Qué ocurre?
+
+**Caso 1**: `squareX("4")`
+
+-   se detecta que `x` es texto
+-   aparece una advertencia
+-   el valor se convierte a numérico
+-   se calcula el cuadrado
+
+✔️ Resultado: `16` (con `warning`)
+
+**Caso 2:** `squareX(4)`
+
+-   `x` ya es numérico
+-   se muestra un mensaje
+-   se calcula el cuadrado
+
+✔️ Resultado: `16` (con `message`)
+
+::: {.callout-important icon="false"}
+## 🧠 Comparación
+
+| Función     | ¿Detiene ejecución? | Uso principal               |
+|-------------|---------------------|-----------------------------|
+| `stop()`    | ❌ Sí               | Error crítico               |
+| `warning()` | ✔️ No               | Algo no ideal ocurrió       |
+| `message()` | ✔️ No               | Información para el usuario |
 :::
 
+### 💡 Conclusión
 
+-   Usa `stop()` cuando el programa **no puede continuar**
+
+-   Usa `warning()` cuando algo puede estar mal, pero puedes seguir
+
+-   Usa `message()` para informar lo que está ocurriendo
+
+:::: {.callout-note icon="false"}
+## 💻Ejercicio
+
+Modifica la función `squareX()` para que:
+
+-   use `stop()` si `x` no puede convertirse a número
+
+-   use `warning()` solo cuando la conversión sea posible
+
+::: {.callout-tip collapse="true" icon="false"}
+## Solución
+
+```{r}
+squareX <- function(x) {
+  if (is.character(x)) {
+    x_num <- as.numeric(x)
+    
+    if (is.na(x_num)) {
+      stop("No se puede convertir x a numérico")
+    }
+    
+    warning("Converting x to numeric")
+    x <- x_num
+  }
+  
+  x^2
+}
+```
+:::
+::::
+
+## Usando el paquete `assertthat`
+
+El paquete [assertthat]{.underline} nos permite validar condiciones, de manera similar a `stopifnot()`, pero con **mensajes de error más claros y personalizables**.
+
+### Instalación y carga del paquete
+
+Si no lo tienes instalado:
+
+```{r, eval=FALSE}
+install.packages("assertthat")
+```
+
+Para usarlo en tu sesión:
+
+```{r}
+library(assertthat)
+```
+
+### 💡 ¿Para qué sirve?
+
+`assert_that()` se utiliza para:
+
+-   verificar condiciones
+
+-   detener la ejecución si no se cumplen
+
+-   mostrar mensajes de error más informativos
+
+**Comparación con `stopifnot()`**
+
+```{r, eval=FALSE}
+x <- 1:10
+
+stopifnot(is.character(x))
+```
+
+```{r, eval=FALSE}
+assert_that(is.character(x))
+```
+
+```{r, eval=FALSE}
+assert_that(length(x) == 5)
+```
+
+```{r, eval=FALSE}
+assert_that(is.numeric(x))
+```
+
+### 💡 Observación
+
+-   `stopifnot()`: mensajes automáticos y poco descriptivos
+
+-   `assert_that()`: mensajes más claros y fáciles de interpretar
+
+**Ejemplo en una función**
+
+```{r}
+foo_message <- function(x) {
+  assert_that(x == 1, msg = "x must always be 1")
+  "yay"
+}
+```
+
+**Verificación / Realizar pruebas**
+
+```{r}
+foo_message(1)
+```
+
+```{r, eval=FALSE}
+foo_message(2)
+```
+
+### 💡 ¿Qué está pasando?
+
+-   si `x == 1` → la función continúa normalmente ✔️
+
+-   si no se cumple → se detiene con un mensaje claro ❌
+
+::: {.callout-important icon="false"}
+## 🧠 Resumen
+
+-   `assert_that()` es una alternativa más expresiva que `stopifnot()`
+
+-   permite escribir código más claro y fácil de depurar
+
+-   es muy útil en funciones donde queremos validar condiciones específicas
+:::
+
+:::: {.callout-note icon="false"}
+## 💻Ejercicio
+
+Modifica la función `squareX()` para que:
+
+-   use `assert_that()` para verificar que `x` sea numérico
+
+-   muestre un mensaje claro si no lo es
+
+::: {.callout-tip collapse="true" icon="false"}
+## Solución
+
+```{r}
+squareX <- function(x) {
+  assert_that(is.numeric(x), msg = "x debe ser numérico")
+  x^2
+}
+```
+:::
+::::
+
+## 🧠 Comparación de funciones para validación y comunicación
+
+| Función | ¿Detiene ejecución? | Tipo de salida | Personalizable | Uso principal |
+|---------------|---------------|---------------|---------------|---------------|
+| `stop()` | ❌ Sí | Error | ✔️ Sí | Error crítico, no se puede continuar |
+| `stopifnot()` | ❌ Sí | Error | ❌ No | Validación rápida de condiciones |
+| `assert_that()` | ❌ Sí | Error | ✔️ Sí | Validación con mensajes más claros |
+| `warning()` | ✔️ No | Advertencia (warning) | ✔️ Sí | Algo no ideal, pero se puede continuar |
+| `message()` | ✔️ No | Mensaje informativo | ✔️ Sí | Informar al usuario |
+
+### 💡 ¿Cómo elegir cuál usar?
+
+-   Usa `stop()` cuando el programa **no puede continuar**
+
+-   Usa `stopifnot()` para validaciones rápidas y simples
+
+-   Usa `assert_that()` cuando quieras **mensajes más claros**
+
+-   Usa `warning()` cuando algo puede estar mal, pero no es crítico
+
+-   Usa `message()` para comunicar lo que está ocurriendo
+
+### 🚨 Idea clave
+
+> No todos los problemas son errores fatales.\
+> Saber cuándo **detener**, **advertir** o **informar** es parte de escribir buen código.
+
+# Guardar y reutilizar funciones
+
+Hasta ahora hemos creado funciones dentro de nuestra sesión de R.\
+Sin embargo, si cerramos R, **esas funciones se pierden**.
+
+Para evitar esto, podemos guardarlas y reutilizarlas después.
+
+## Opción A: Guardar como archivo `.RData`
+
+Podemos guardar una función como un objeto en un archivo `.RData`.
+
+```{r}
+squareX <- function(x) {
+  if (is.character(x)) {
+    warning("Converting x to numeric")
+    x <- as.numeric(x)
+  } else {
+    message("x appears to be numeric")
+  }
+  
+  x^2
+}
+
+# Guardar la función
+save(squareX, file = "./squareX.RData")
+
+# Eliminar la función del entorno
+rm(squareX)
+```
+
+### Cargar la función
+
+Para volver a usarla:
+
+```{r, eval=FALSE}
+load("./squareX.RData")
+```
+
+### 💡 ¿Qué está pasando?
+
+-   `save()` guarda el objeto en un archivo
+
+-   `rm()` elimina la función del entorno
+
+-   `load()` recupera la función exactamente como estaba
+
+✔️ Es útil cuando quieres guardar el estado de tu trabajo
+
+### ⚠️ Desventaja
+
+-   No puedes ver fácilmente el código dentro del `.RData`
+
+-   No es ideal para compartir o versionar código
+
+## Opción B: Guardar en un script `.R`
+
+Una mejor práctica es guardar tus funciones en un archivo de R, por ejemplo:
+
+`squareX_function.R`
+
+Luego puedes cargarlo con:
+
+```{r, eval=FALSE}
+source("squareX_function.R")
+```
+
+### 💡 ¿Qué hace `source()`?
+
+-   ejecuta todo el código del archivo
+
+-   carga automáticamente las funciones en tu sesión
+
+-   permite mantener tu código organizado
+
+## 🧠 Comparación
+
+| Método | Ventaja | Desventaja |
+|------------------------|------------------------|------------------------|
+| `.RData` | Guarda objetos directamente | No es legible ni fácil de editar |
+| `.R` + source | Código visible y reutilizable | Requiere ejecutar el script |
+
+## 🎯 Recomendación
+
+> Para desarrollo y proyectos, es mejor usar archivos `.R` y `source()`.
+
+:::: {.callout-note icon="false"}
+## 💻Ejercicio
+
+Crea un archivo llamado `mis_funciones.R` que contenga al menos:
+
+-   `my_sum()`
+
+-   `squareX()`
+
+Luego, cárgalo en tu sesión usando `source()`.
+
+::: {.callout-tip collapse="true" icon="false"}
+## Solución
+
+```{r, eval=FALSE}
+my_sum <- function(a, b) {
+  a + b
+}
+
+squareX <- function(x) {
+  x^2
+}
+```
+
+```{r, eval=FALSE}
+source("mis_funciones.R")
+```
+:::
+::::
+
+# Ejercicios extra
+
+:::: {.callout-note icon="false"}
+## 💻Ejercicio: Función de saludo según la hora
+
+Escribe una función que muestre un saludo dependiendo de la hora del día:
+
+-   "Buenos días"
+
+-   "Buenas tardes"
+
+-   "Buenas noches"
+
+💡 *Sugerencia:* usa un argumento `time` que por defecto sea `lubridate::now()`. Esto facilitará probar tu función.
+
+::: {.callout-tip collapse="true" icon="false"}
+## Solución
+
+```{r}
+library(lubridate)
+
+greeting <- function(time = now()) {
+  hora <- hour(time)
+  
+  if (hora < 12) {
+    return("Buenos días")
+  } else if (hora < 18) {
+    return("Buenas tardes")
+  } else {
+    return("Buenas noches")
+  }
+}
+```
+
+**Verificación:**
+
+```{r}
+greeting()  # Usa la hora actual
+```
+
+```{r}
+greeting(ymd_hms("2024-01-01 10:00:00"))  # Mañana
+greeting(ymd_hms("2024-01-01 15:00:00"))  # Tarde
+greeting(ymd_hms("2024-01-01 21:00:00"))  # Noche
+```
+:::
+::::
+
+:::: {.callout-note icon="false"}
+## 💻Ejercicio: Función tipo *FizzBuzz*
+
+Escribe una función que reciba un número y:
+
+-   si es divisible entre 3, devuelva `"fizz"`
+
+-   si es divisible entre 5, devuelva `"buzz"`
+
+-   si es divisible entre 3 y 5, devuelva `"fizzbuzz"`
+
+-   en cualquier otro caso, devuelva el número
+
+💡 *Sugerencia:* primero escribe el código sin función y verifica que funciona correctamente. Después, conviértelo en una función.
+
+::: {.callout-tip collapse="true" icon="false"}
+## Solución
+
+```{r}
+fizzbuzz <- function(x) {
+  if (x %% 15 == 0) {
+    return("fizzbuzz")
+  } else if (x %% 3 == 0) {
+    return("fizz")
+  } else if (x %% 5 == 0) {
+    return("buzz")
+  } else {
+    return(x)
+  }
+}
+```
+
+**Verificación:**
+
+```{r}
+fizzbuzz(3)   # "fizz"
+fizzbuzz(5)   # "buzz"
+fizzbuzz(15)  # "fizzbuzz"
+fizzbuzz(7)   # 7
+```
+:::
+::::
+
+:::: {.callout-note icon="false"}
+## 💻Ejercicio: Clasificación de temperatura
+
+Escribe una función que reciba una temperatura (en grados Celsius) y devuelva:
+
+-   `"congelación"` si es menor o igual a 0
+
+-   `"frío"` si está entre 0 y 10
+
+-   `"templado"` si está entre 10 y 20
+
+-   `"cálido"` si está entre 20 y 30
+
+-   `"caliente"` si es mayor a 30
+
+💡 *Sugerencia:* usa `if, else if`.
+
+::: {.callout-tip collapse="true" icon="false"}
+## Solución
+
+```{r}
+clasificar_temp <- function(temp) {
+  if (temp <= 0) {
+    return("congelación")
+  } else if (temp <= 10) {
+    return("frío")
+  } else if (temp <= 20) {
+    return("templado")
+  } else if (temp <= 30) {
+    return("cálido")
+  } else {
+    return("caliente")
+  }
+}
+```
+
+**Verificación**
+
+```{r}
+clasificar_temp(-5)
+clasificar_temp(15)
+clasificar_temp(35)
+```
+:::
+::::
+
+:::: {.callout-note icon="false"}
+## 💻Ejercicio: Suma acumulada con ciclo `for`
+
+Escribe una función que:
+
+- reciba un número entero `n`
+
+- calcule la suma de los números del 1 hasta `n`
+
+- devuelva el resultado
+
+
+💡 *Sugerencia:* usa un ciclo `for`.
+
+::: {.callout-tip collapse="true" icon="false"}
+## Solución
+
+```{r}
+suma_acumulada <- function(n) {
+  total <- 0
+  
+  for (i in 1:n) {
+    total <- total + i
+  }
+  
+  return(total)
+}
+```
+
+**Verificación:**
+
+```{r}
+suma_acumulada(5)  # 1+2+3+4+5 = 15
+```
+:::
+::::
